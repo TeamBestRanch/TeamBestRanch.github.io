@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="container" id="SignUpForm">
+      <!-- Sign In Form for user logging in -->
+      <!-- Asking User to Enter their first name -->
+      <form class="form-inline" action="/action_page.php">
+        <label for="FName" class="mr-sm-2">First Name:</label>
+        <input
+          type="text"
+          class="form-control mb-2 mr-sm-2"
+          placeholder="Enter First Name...."
+          id="FName"
+        />
+
+        <label for="LName" class="mr-sm-2">Last Name:</label>
+        <input
+          type="text"
+          class="form-control mb-2 mr-sm-2"
+          placeholder="Enter Last Name...."
+          id="LName"
+        />
+      </form>
+
+      <!-- Email Sign up for user -->
+      <form action="#">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter email"
+            id="emailSignUp"
+          />
+        </div>
+
+        <!-- User creating a password for account -->
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter password"
+            id="pwdSignUp"
+          />
+        </div>
+
+        <!-- Passsword confirmation. Will ask user to re-type their password -->
+        <div class="form-group">
+          <label for="pwd">Confirm Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter password"
+            id="pwdSignUpConfirmed"
+          />
+        </div>
+
+        <!-- Sign In Button will push data provided by user to database -->
+        <button type="submit" class="btn btn-primary">SignUp</button>
+      </form>
+    </div>
+  </body>
+</html>
