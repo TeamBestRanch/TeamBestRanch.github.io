@@ -1,45 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='css/all.css') }}"
-    />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='forms.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='navbar.css') }}"
-    />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='landing.css') }}"
-    />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='styles.css') }}"
+      href="{{ url_for('static', filename='login_signup.css') }}"
     />
 
     {% if title %}
@@ -49,39 +31,15 @@
     {% endif %}
   </head>
   <body>
-    <!-- Navigation Bar Code -->
-    <nav class="navbar fixed-top" role="navigation">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="home">Lost in Sauce</a>
-        <button
-          type="button"
-          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
-          data-toggle="collapse"
-          data-target="#collapsingNavbar1"
-        >
-          ☰
-        </button>
-        <div class="collapse navbar-collapse" id="collapsingNavbar1">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="RestaurantRankings">Ratings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="signup">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End of Navigation Bar -->
-
-    <!-- Log In Form for current users logging in -->
-    <div class="container" id="form">
-      <!-- <br><br><br> -->
-      <div class="login_form_text" id="login_form">
+    <div class="container">
+      <a href="home">Home</a><br />
+      <a href="login">Login</a><br />
+      <a href="signup">Sign Up</a><br />
+    </div>
+    <div class="container" id="LogInForm">
+      <div class="inputBox">
+        <!-- Sign In Form for current users logging in -->
+        <!-- Asking User to enter the email address they used to sign up -->
         <form action="#">
           <div class="form-group">
             <label for="email">Email address:</label>
@@ -104,72 +62,21 @@
             />
           </div>
           <!-- Sign In button will trigger a check in the database to see if user exists -->
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button
+            type="button"
+            class="btn btn"
+            style="background-color: #ededed"
+          >
+            <a
+              href="signup"
+              style="color: black; text-decoration: none"
+              target="_blank"
+              >Sign-Up</a
+            >
+          </button>
         </form>
       </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="container-fluid text-center">
-      <div class="footer-content">
-        <div class="footer-section about-us">
-          <h3>Team Best Ranch Is:</h3>
-          <!-- <ul class="team-members"> -->
-          Tiffanny Hernaez<br />
-          Diana Joya<br />
-          Mikias Zeleke<br />
-          Patrick Kilroy<br />
-          Jeffrey Russell<br />
-          <!-- </ul> -->
-        </div>
-        <div class="footer-section repository">
-          <h3>Github Repository</h3>
-          <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io">
-            <!-- <img src="src={{ url_for('static', filename='img/github.jpg')}}"></img> -->
-            <i class="fab fa-github" href=""></i>
-          </a>
-        </div>
-        <div class="footer-section logo">
-          <a href="home">
-            <img
-              class="footer-logo"
-              src="{{ url_for('static', filename='img/logo.png') }}"
-              alt="TeamBestRanch Logo"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
-      </div>
-    </footer>
-    <!-- End of Footer -->
-
-    <!-- Scripts Section -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

@@ -6,11 +6,11 @@
 
 from flask import Flask, render_template, url_for
 
-app = Flask(__name__,template_folder='templates')
+app = Flask(__name__,template_folder='../First_Iteration/templates')
 
 
 @app.route("/")
-@app.route("/home",  methods=['GET', 'POST'])
+@app.route("/home")
 def Home():
     return render_template("index.html")
 
@@ -23,10 +23,6 @@ def login():
 @app.route('/signup')
 def signup():
     return render_template('signup.html', title='Sign Up')
-
-@app.route('/RestaurantRankings')
-def RestaurantRankings():
-    return render_template('rankings.html', title='Restaurant Rankings')
 
 
 if(__name__) == '__main__':
