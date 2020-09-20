@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='login_signup.css') }}"
+    />
+
+    {% if title %}
+    <title>Best Ranch - {{ title }}</title>
+    {% else %}
+    <title>Best Ranch</title>
+    {% endif %}
+  </head>
+  <body>
+    <div class="container">
+      <a href="home">Home</a><br />
+      <a href="login">Login</a><br />
+      <a href="signup">Sign Up</a><br />
+    </div>
+    <div class="container" id="LogInForm">
+      <div class="inputBox">
+        <!-- Sign In Form for current users logging in -->
+        <!-- Asking User to enter the email address they used to sign up -->
+        <form action="#">
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter email"
+              id="emailLogin"
+            />
+          </div>
+
+          <!-- Asking User to enter the password of their account  -->
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Enter password"
+              id="pwdLogin"
+            />
+          </div>
+          <!-- Sign In button will trigger a check in the database to see if user exists -->
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button
+            type="button"
+            class="btn btn"
+            style="background-color: #ededed"
+          >
+            <a
+              href="signup"
+              style="color: black; text-decoration: none"
+              target="_blank"
+              >Sign-Up</a
+            >
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
