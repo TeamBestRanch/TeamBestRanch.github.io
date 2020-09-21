@@ -51,6 +51,13 @@ html, body {
 .btn-default {
     background-color: #000000;
     color: #FFF;
+    border-radius: 4px;
+}
+
+.btn-default:hover {
+    background-color: #FFF;
+    color: #D3AF37;
+    border: 1px solid #D3AF37;
 }
 
 .Log-in-sign-up {
