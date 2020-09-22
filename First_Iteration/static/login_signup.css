@@ -1,10 +1,45 @@
-.inputBox {
+/* .inputBox {
   border: 4px solid #757170;
   background-color: white;
   border-radius: 5px;
   width: 800px;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  padding-right: 30px;
   padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+form {
+  /* background: url(img/background.jpg) no-repeat center center fixed;
+  display: table;
+  height: 83%;
+  position: relative;
+  background-size: cover; */
+
+  border: 4px solid #757170;
+  background-color: white;
+  border-radius: 5px;
+  width: 800px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login_form_text {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 800px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.signup_form_text {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 800px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

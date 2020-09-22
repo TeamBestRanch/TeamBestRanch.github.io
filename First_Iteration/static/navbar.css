@@ -1,0 +1,27 @@
+/* Navigation Styling */
+
+.navbar {
+  /* background-color: #23415C; */
+  background: transparent;
+  border: 0;
+  padding: 0.5% 0;
+  font-size: 1.2em;
+}
+
+.navbar-default .navbar-brand {
+  min-height: 55px;
+  padding: 10px 15px 5px;
+  color: #d3af37;
+  vertical-align: center;
+  font-family: "Bungee Shade", cursive;
+}
+
+.navbar-default .navbar-nav li a {
+  color: #3f403f;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar-default .navbar-nav li a:hover,
+.navbar-default .navbar-nav li a:active {
+  color: #d3af37;
+}
