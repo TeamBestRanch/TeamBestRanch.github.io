@@ -24,6 +24,10 @@ def login():
 def signup():
     return render_template('signup.html', title='Sign Up')
 
+@app.route('/RestaurantRankings')
+def RestaurantRankings():
+    return render_template('rankings.html', title='Restaurant Rankings')
+
 
 if(__name__) == '__main__':
     app.run(debug=True)
