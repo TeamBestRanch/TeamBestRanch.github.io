@@ -3,9 +3,12 @@ html, body {
     width: 100%;
 }
 
-/* Landing Page Styling */
 #home {
-    background: url(img/background.jpg) no-repeat center center fixed;
+    /* background: url("../img/pexels-lukas-1352269.jpg") no-repeat center center fixed; */
+    transition-timing-function: ease;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: fixed;
     display: table;
     height: 100%;
     position: relative;
@@ -44,8 +47,9 @@ html, body {
     padding: .5% 0;
 }
 
-.site-description {
-    padding: .5%;
+.site-logo .main-logo {
+    width: 20%;
+    height: 30%;
 }
 
 .btn-default {
