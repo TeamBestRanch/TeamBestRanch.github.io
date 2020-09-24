@@ -10,13 +10,13 @@ var backgrounds = new Array(
 var imageUrl= "url('First Iteration/img/pexels-engin-akyurt-1435901.jpg')";
 document.getElementById("home").style.backgroundImage = imageUrl;
 
-cycle = 0;
+idx = 0;
 
 setInterval(function() { 
-	if (cycle < backgrounds.length) { 
-		document.getElementById("home").style.backgroundImage = backgrounds[cycle]; 
-		cycle += 1; 
+	if (idx < backgrounds.length) { 
+		document.getElementById("home").style.backgroundImage = backgrounds[idx]; 
+		idx += 1; 
 	} else {  
-		cycle = 0; 
+		idx = 0; 
 	} 
-}, 10000); 
+}, 5000); 

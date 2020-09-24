@@ -3,17 +3,18 @@ html, body {
     width: 100%;
 }
 
+/* Landing Page Styling */
 #home {
     /* background: url("../img/pexels-lukas-1352269.jpg") no-repeat center center fixed; */
     transition-timing-function: ease;
     background-position: center;
     background-repeat: no-repeat; 
     background-size: fixed;
+    background-size: cover;
     display: table;
     height: 100%;
     position: relative;
     width: 100%;
-    background-size: cover;
 }
 
 .landing-text {

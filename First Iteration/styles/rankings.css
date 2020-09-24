@@ -1,16 +1,11 @@
-html, body {
-    height: 100%;
-    width: 100%;
-}
-
-/* Ranking Page Styling */
+/* Rankings Page Styling */
 #ranch-list {
-    background: url(img/background.jpg) no-repeat center center fixed;
     display: table;
-    height: 83%;
     position: relative;
     width: 100%;
-    background-size: cover;
+    height: 100%;
+    padding-top:50px;
+    margin-top:100px;
 }
 
 .ranch-list-text {

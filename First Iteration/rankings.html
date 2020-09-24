@@ -6,25 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">   
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
-        <link href="styles/rankings.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet"> 
+        <link href="styles/css/all.css" rel="stylesheet" />
         <link href="styles/navbar.css" rel="stylesheet" />
         <link href="styles/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation Bar Code -->
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <nav class="navbar fixed-top" role="navigation">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="../index.html">Team Best Ranch</a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsingNavbar1">
-                        ☰
-                    </button>
-                </div>
-                <div class="navbar-collapse collapse" id="collapsingNavbar1">
-                    <ul class="nav navbar-nav navbar-right">
+                <a class="navbar-brand" href="..\index.html">Lost in Sauce</a>
+                <button type="button" class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto" data-toggle="collapse" data-target="#collapsingNavbar1">
+                    ☰
+                </button>
+                <div class="collapse navbar-collapse" id="collapsingNavbar1">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="rankings.html">Ratings</a>
                         </li>
@@ -76,30 +72,33 @@
         <!-- End of Ranch Rating -->
 
 
-        <!-- ADD YOUR CODE HERE -->
-        <div id="ranch-list">
-            <div class="ranch-list-text">
-                <h1>In Progress...</h1>
-            </div>
-        </div>
-
-
         <!-- Footer -->
         <footer class="container-fluid text-center">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Team Best Ranch Info</h3>
-                    <br>
-                    <h4>Team Members...</h4>
+            <div class="footer-content">
+                <div class="footer-section about-us">
+                    <h3>Team Best Ranch Is:</h3>
+                    <ul class="team-members">
+                        <li>Tiffanny Hernaez</li>
+                        <li>Diana Joya</li>
+                        <li>Mikias Zeleke</li>
+                        <li>Patrick Kilroy</li>
+                        <li>Jeffrey Russell</li>
+                    </ul>
                 </div>
-                <div class="col-sm-4">
+                <div class="footer-section repository">
                     <h3>Github Repository</h3>
-                    <br>
-                    <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io" class="">Note: add github icon!!</a>
+                    <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io"> 
+                        <i class="fab fa-github" href=""></i>
+                    </a>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Note: add team best ranch img!!</h3>
+                <div class="footer-section logo">
+                    <a href="../index.html">
+                        <img class="footer-logo" src="img/logo.png" alt="TeamBestRanch Logo">
+                    </a>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
             </div>
         </footer>
         <!-- End of Footer -->
