@@ -7,8 +7,13 @@
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-
+    />  
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet"> 
+    <link href="styles/css/all.css" rel="stylesheet" />
+    <link href="styles/landing.css" rel="stylesheet" />
+    <link href="styles/navbar.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
+    <link href="styles/forms.css" rel="stylesheet" />
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -21,6 +26,30 @@
     <title>Log In</title>
   </head>
   <body>
+      <!-- Navigation Bar Code -->
+      <nav class="navbar fixed-top" role="navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="..\index.html">Lost in Sauce</a>
+            <button type="button" class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto" data-toggle="collapse" data-target="#collapsingNavbar1">
+                ☰
+            </button>
+            <div class="collapse navbar-collapse" id="collapsingNavbar1">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="rankings.html">Ratings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation Bar -->
+    
     <div class="container" id="LogInForm">
       <!-- Sign In Form for current users logging in -->
       <!-- Asking User to enter the email address they used to sign up -->
@@ -49,5 +78,44 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
+ 
+      <!-- Footer -->
+      <footer class="container-fluid text-center">
+        <div class="footer-content">
+            <div class="footer-section about-us">
+                <h3>Team Best Ranch Is:</h3>
+                <ul class="team-members">
+                  <li>Tiffanny Hernaez</li>
+                  <li>Diana Joya</li>
+                  <li>Mikias Zeleke</li>
+                  <li>Patrick Kilroy</li>
+                  <li>Jeffrey Russell</li>
+              </ul>
+            </div>
+            <div class="footer-section repository">
+                <h3>Github Repository</h3>
+                <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io"> 
+                    <i class="fab fa-github" href=""></i>
+                </a>
+            </div>
+            <div class="footer-section logo">
+                <a href="../index.html">
+                    <img class="footer-logo" src="img/logo.png" alt="TeamBestRanch Logo">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Scripts Section -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
   </body>
 </html>
