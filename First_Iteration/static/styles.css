@@ -5,6 +5,60 @@ footer {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-footer .row {
-  padding: 1%;
+footer {
+  background-color: black;
+}
+
+footer h3 {
+  font-size: 20px;
+}
+
+footer h4 {
+  padding-top: 15px;
+  font-size: 25px;
+}
+
+footer .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer .footer-content .footer-section {
+  flex: 1;
+  padding: 25px;
+}
+
+footer .footer-content .footer-section .repository {
+  text-align: center;
+}
+
+footer .footer-content .footer-section .logo {
+  text-align: center;
+}
+
+.footer-logo {
+  width: 90px;
+  height: 100px;
+  cursor: pointer;
+}
+
+footer .team-members {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer .team-members li {
+  list-style: square;
+  flex: 1 0 50%;
+}
+
+.fab {
+  padding-top: 15px;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.fab:hover {
+  color: #d3af37;
 }

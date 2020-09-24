@@ -1,27 +1,41 @@
 /* Navigation Styling */
 
 .navbar {
-  /* background-color: #23415C; */
-  background: transparent;
+  background: rgba(255, 255, 255, 0.8);
   border: 0;
   padding: 0.5% 0;
   font-size: 1.2em;
+  min-height: 60px;
 }
 
-.navbar-default .navbar-brand {
-  min-height: 55px;
-  padding: 10px 15px 5px;
+.navbar-brand {
+  border: solid 1px #d3af37;
+  border-radius: 3px;
+  font-size: 1.2em;
+  min-height: 50px;
+  padding: 5px 15px 5px;
   color: #d3af37;
   vertical-align: center;
   font-family: "Bungee Shade", cursive;
 }
 
-.navbar-default .navbar-nav li a {
-  color: #3f403f;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.navbar-brand:hover {
+  font-size: 1.3em;
+  color: #d3af37;
 }
 
-.navbar-default .navbar-nav li a:hover,
-.navbar-default .navbar-nav li a:active {
+.navbar-toggler {
+  font-size: 2em;
+}
+
+.navbar-nav li a {
+  color: #3f403f;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-bottom: solid #3f403f 1px;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li a:active {
   color: #d3af37;
+  border-bottom: solid #d3af37 1px;
 }
