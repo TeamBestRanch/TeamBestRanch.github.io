@@ -1,0 +1,40 @@
+/* Navigation Styling */
+
+.navbar {
+    background: rgba(255, 255, 255, 0.8);
+    border: 0;
+    padding: .5% 0;
+    font-size: 1.2em;
+    min-height: 60px;
+}
+
+.navbar-brand {
+    border: solid 1px #D3AF37;
+    border-radius: 3px;
+    font-size: 1.2em;
+    min-height: 50px;
+    padding: 5px 15px 5px;
+    color: #D3AF37;
+    vertical-align: center;
+    font-family: 'Bungee Shade', cursive;
+}
+
+.navbar-brand:hover {
+    font-size: 1.3em;
+    color: #D3AF37;
+}
+
+.navbar-toggler {
+    font-size: 2em;
+}
+
+.navbar-nav li a {
+    color: #3F403F;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-bottom: solid #3F403F 1px;
+}
+
+.navbar-nav li a:hover, .navbar-nav li a:active {
+    color: #D3AF37;
+    border-bottom: solid #D3AF37 1px;
+}
