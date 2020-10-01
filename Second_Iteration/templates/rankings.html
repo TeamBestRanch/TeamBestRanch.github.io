@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Team Best Ranch Ranking List</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/all.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='rankings.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='navbar.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar Code -->
+    <nav class="navbar fixed-top" role="navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Navigation Bar -->
+
+    <div class="container-fluid">
+      <br />
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/ranchpic1.jpg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture2.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture3.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture4.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture5.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture8.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture9.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+          />
+          <center><b>RANCH RATING</b></center>
+          <button type="button">
+            <span style="font-size: 25px">&#128544;</span>
+          </button>
+          <label for="star1" title="text"> Hate It</label>
+          <button type="button">
+            <span style="font-size: 25px">&#128566;</span>
+          </button>
+          <label for="star2" title="text"> Abstain</label>
+
+          <!-- Meh -->
+          <button type="button">
+            <span style="font-size: 25px">&#128528;</span>
+          </button>
+          <label for="star3" title="text"> Meh</label>
+
+          <!-- Almost Perfect -->
+          <button type="button">
+            <span style="font-size: 25px">&#128522;</span>
+          </button>
+          <label for="star4" title="text"> perfect</label>
+
+          <!-- Need the Sauce -->
+          <button type="button">
+            <span style="font-size: 25px">&#128523;</span>
+          </button>
+          <label for="star5" title="text"> NEED THE SAUCE</label>
+        </div>
+      </div>
+      <br />
+      <br />
+    </div>
+
+    <!-- Footer -->
+    <br /><br />
+    <footer class="container-fluid text-center">
+      <div class="footer-content">
+        <div class="footer-section about-us">
+          <h3>Team Best Ranch Is:</h3>
+          <!-- <ul class="team-members"> -->
+          Tiffanny Hernaez<br />
+          Diana Joya<br />
+          Mikias Zeleke<br />
+          Patrick Kilroy<br />
+          Jeffrey Russell<br />
+          <!-- </ul> -->
+        </div>
+        <div class="footer-section repository">
+          <h3>Github Repository</h3>
+          <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io">
+            <!-- <img src="src={{ url_for('static', filename='img/github.jpg')}}"></img> -->
+            <i class="fab fa-github" href=""></i>
+          </a>
+        </div>
+        <div class="footer-section logo">
+          <a href="home">
+            <img
+              class="footer-logo"
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              alt="TeamBestRanch Logo"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Scripts Section -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
