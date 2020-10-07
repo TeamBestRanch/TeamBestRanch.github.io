@@ -75,334 +75,394 @@
       <br />
       <br />
       <br />
-      <div class="row">
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/ranchpic1.jpg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+      <div id="shopCarousel" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#shopCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#shopCarousel" data-slide-to="1"></li>
+          <li data-target="#shopCarousel" data-slide-to="2"></li>   
+        </ul>
+      
+       <!--First slide-->
+       <div class="carousel-inner">
+       <div class="carousel-item active">
+      
+          <div class="row">
+              <!-- First image on First slide-->
+              <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Swinger Bar and Grill</h5>
+                      <img class="card-img top" src="../static/img/picture1.jpeg" alt= "card image top">
+                      <div class="card-body">
+                          <button type="button">
+                              <span style="font-size: 25px">&#128544;</span>
+                            </button>
+                            <label for="star1" title="text"> Hate It</label>
+                            <button type="button">
+                              <span style="font-size: 25px">&#128566;</span>
+                            </button>
+                            <label for="star2" title="text"> Abstain</label>
+                  
+                            <!-- Meh -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128528;</span>
+                            </button>
+                            <label for="star3" title="text"> Meh</label>
+                  
+                            <!-- Almost Perfect -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128522;</span>
+                            </button>
+                            <label for="star4" title="text"> perfect</label>
+                  
+                            <!-- Need the Sauce -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128523;</span>
+                            </button>
+                            <label for="star5" title="text"> NEED IT</label>
+                      </div>
+                      
+                  </div>
+                </div>
+                <!-- End First Image-->
+      
+      
+                <!-- Second Image on First Slide-->
+                <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Moooving Ranch</h5>
+                      <img class="card-img top" src="../static/img/picture2.jpeg" alt= "card image top">
+                      <div class="card-body">
+                          <button type="button">
+                              <span style="font-size: 25px">&#128544;</span>
+                            </button>
+                            <label for="star1" title="text"> Hate It</label>
+                            <button type="button">
+                              <span style="font-size: 25px">&#128566;</span>
+                            </button>
+                            <label for="star2" title="text"> Abstain</label>
+                  
+                            <!-- Meh -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128528;</span>
+                            </button>
+                            <label for="star3" title="text"> Meh</label>
+                  
+                            <!-- Almost Perfect -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128522;</span>
+                            </button>
+                            <label for="star4" title="text"> perfect</label>
+                  
+                            <!-- Need the Sauce -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128523;</span>
+                            </button>
+                            <label for="star5" title="text"> NEED IT</label>
+                      </div>
+                      
+                  </div>
+                </div>
+                <!--End Second Image-->
+        
+              <!-- Third image on First Slide-->
+                <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Baskets and Buckets</h5>
+                      <img class="card-img top" src="../static/img/picture3.jpeg" alt= "card image top">
+                      <div class="card-body">
+                          <button type="button">
+                              <span style="font-size: 25px">&#128544;</span>
+                            </button>
+                            <label for="star1" title="text"> Hate It</label>
+                            <button type="button">
+                              <span style="font-size: 25px">&#128566;</span>
+                            </button>
+                            <label for="star2" title="text"> Abstain</label>
+                  
+                            <!-- Meh -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128528;</span>
+                            </button>
+                            <label for="star3" title="text"> Meh</label>
+                  
+                            <!-- Almost Perfect -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128522;</span>
+                            </button>
+                            <label for="star4" title="text"> perfect</label>
+                  
+                            <!-- Need the Sauce -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128523;</span>
+                            </button>
+                            <label for="star5" title="text"> NEED IT</label>
+                      </div>
+                      
+                  </div>
+                </div>
+                <!-- End Third Image-->
+          </div>
+      
         </div>
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture2.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture3.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-      </div>
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture4.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture5.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-      </div>
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture8.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture9.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
-
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
-
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
-
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
+        <!--/.First slide-->
+      
+        <!--Second Slide-->
+          <div class="carousel-item ">
+         
+             <div class="row">
+                 <!-- First image on Second slide-->
+                 <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Ranchless Wonders</h5>
+                      <img class="card-img top" src="../static/img/picture4.jpeg" alt= "card image top">
+                      <div class="card-body">
+                          <button type="button">
+                              <span style="font-size: 25px">&#128544;</span>
+                            </button>
+                            <label for="star1" title="text"> Hate It</label>
+                            <button type="button">
+                              <span style="font-size: 25px">&#128566;</span>
+                            </button>
+                            <label for="star2" title="text"> Abstain</label>
+                  
+                            <!-- Meh -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128528;</span>
+                            </button>
+                            <label for="star3" title="text"> Meh</label>
+                  
+                            <!-- Almost Perfect -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128522;</span>
+                            </button>
+                            <label for="star4" title="text"> perfect</label>
+                  
+                            <!-- Need the Sauce -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128523;</span>
+                            </button>
+                            <label for="star5" title="text"> NEED IT</label>
+                      </div>
+                      
+                  </div>
+                   </div>
+                   <!-- End First Image-->
+         
+         
+                   <!-- Second Image on Second Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Ranchy Ranchers</h5>
+                          <img class="card-img top" src="../static/img/picture5.jpeg" alt= "card image top">
+                          <div class="card-body">
+                              <button type="button">
+                                  <span style="font-size: 25px">&#128544;</span>
+                                </button>
+                                <label for="star1" title="text"> Hate It</label>
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128566;</span>
+                                </button>
+                                <label for="star2" title="text"> Abstain</label>
+                      
+                                <!-- Meh -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128528;</span>
+                                </button>
+                                <label for="star3" title="text"> Meh</label>
+                      
+                                <!-- Almost Perfect -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128522;</span>
+                                </button>
+                                <label for="star4" title="text"> perfect</label>
+                      
+                                <!-- Need the Sauce -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128523;</span>
+                                </button>
+                                <label for="star5" title="text"> NEED IT</label>
+                          </div>
+                          
+                      </div>
+                   </div>
+                   <!--End Second Image-->
+           
+                 <!-- Third image on Second Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Horse Girls</h5>
+                          <img class="card-img top" src="../static/img/picture6.jpeg" alt= "card image top">
+                          <div class="card-body">
+                              <button type="button">
+                                  <span style="font-size: 25px">&#128544;</span>
+                                </button>
+                                <label for="star1" title="text"> Hate It</label>
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128566;</span>
+                                </button>
+                                <label for="star2" title="text"> Abstain</label>
+                      
+                                <!-- Meh -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128528;</span>
+                                </button>
+                                <label for="star3" title="text"> Meh</label>
+                      
+                                <!-- Almost Perfect -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128522;</span>
+                                </button>
+                                <label for="star4" title="text"> perfect</label>
+                      
+                                <!-- Need the Sauce -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128523;</span>
+                                </button>
+                                <label for="star5" title="text"> NEED IT</label>
+                          </div>
+                          
+                      </div>
+                   </div>
+                   <!-- End Third Image-->
+             </div>
+         
+           </div>
+        <!--End Second Slide-->
+      
+        <!-- Third Slide-->
+          <div class="carousel-item">
+         
+             <div class="row">
+                 <!-- First image on Third slide-->
+                 <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Greener Pastures</h5>
+                      <img class="card-img top" src="../static/img/picture7.jpeg" alt= "card image top">
+                      <div class="card-body">
+                          <button type="button">
+                              <span style="font-size: 25px">&#128544;</span>
+                            </button>
+                            <label for="star1" title="text"> Hate It</label>
+                            <button type="button">
+                              <span style="font-size: 25px">&#128566;</span>
+                            </button>
+                            <label for="star2" title="text"> Abstain</label>
+                  
+                            <!-- Meh -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128528;</span>
+                            </button>
+                            <label for="star3" title="text"> Meh</label>
+                  
+                            <!-- Almost Perfect -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128522;</span>
+                            </button>
+                            <label for="star4" title="text"> perfect</label>
+                  
+                            <!-- Need the Sauce -->
+                            <button type="button">
+                              <span style="font-size: 25px">&#128523;</span>
+                            </button>
+                            <label for="star5" title="text"> NEED IT</label>
+                      </div>
+                      
+                  </div>
+                   </div>
+                   <!-- End First Image-->
+         
+         
+                   <!-- Second Image on Third Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Snowed Inn</h5>
+                          <img class="card-img top" src="../static/img/picture8.jpeg" alt= "card image top">
+                          <div class="card-body">
+                              <button type="button">
+                                  <span style="font-size: 25px">&#128544;</span>
+                                </button>
+                                <label for="star1" title="text"> Hate It</label>
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128566;</span>
+                                </button>
+                                <label for="star2" title="text"> Abstain</label>
+                      
+                                <!-- Meh -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128528;</span>
+                                </button>
+                                <label for="star3" title="text"> Meh</label>
+                      
+                                <!-- Almost Perfect -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128522;</span>
+                                </button>
+                                <label for="star4" title="text"> perfect</label>
+                      
+                                <!-- Need the Sauce -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128523;</span>
+                                </button>
+                                <label for="star5" title="text"> NEED IT</label>
+                          </div>
+                          
+                      </div>
+                   </div>
+                   <!--End Second Image-->
+           
+                 <!-- Third image on Third Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Vegan Favorites</h5>
+                          <img class="card-img top" src="../static/img/picture9.jpeg" alt= "card image top">
+                          <div class="card-body">
+                              <button type="button">
+                                  <span style="font-size: 25px">&#128544;</span>
+                                </button>
+                                <label for="star1" title="text"> Hate It</label>
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128566;</span>
+                                </button>
+                                <label for="star2" title="text"> Abstain</label>
+                      
+                                <!-- Meh -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128528;</span>
+                                </button>
+                                <label for="star3" title="text"> Meh</label>
+                      
+                                <!-- Almost Perfect -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128522;</span>
+                                </button>
+                                <label for="star4" title="text"> perfect</label>
+                      
+                                <!-- Need the Sauce -->
+                                <button type="button">
+                                  <span style="font-size: 25px">&#128523;</span>
+                                </button>
+                                <label for="star5" title="text"> NEED IT</label>
+                          </div>
+                          
+                      </div>
+                   </div>
+                   <!-- End Third Image-->
+             </div>
+         
+           </div>
+      
+        <!-- End Third Slide-->
+        
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#shopCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#shopCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
       </div>
       <br />
       <br />
