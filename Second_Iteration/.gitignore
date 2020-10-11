@@ -65,6 +65,7 @@ env/
 venv/
 ENV/
 FirstIteration_env
+SecondIteration_env
 
 # If you are using PyCharm # 
 .idea/**/workspace.xml 
