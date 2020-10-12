@@ -18,22 +18,31 @@
       type="text/css"
       href="{{ url_for('static', filename='css/all.css') }}"
     />
-
+    <!-- 
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='forms.css') }}"
-    />
+    /> -->
+    <style>
+      .container {
+        display: table;
+        height: 100%;
+        position: relative;
+        width: 100%;
+        background-size: cover;
+        padding-top: 18%;
+      }
+
+      .main-logo {
+        height: 250px;
+        padding-bottom: 10px;
+      }
+    </style>
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='navbar.css') }}"
-    />
-
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='landing.css') }}"
     />
 
     <link
@@ -78,75 +87,146 @@
     </nav>
     <!-- End of Navigation Bar -->
 
-    <!-- Log In Form for current users logging in -->
-    <div class="container" id="LoginForm">
-      <!-- Message to let user know they have logged in -->
+    <div>
+      <center>
+        <br /><br /><br />
+        <img class="main-logo" src="{{ url_for('static',
+        filename='img/logo.png') }}" alt="TeamBestRanch Logo" href="Home" style=
+        /><br />
+      </center>
+    </div>
+    <div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {%if messages%}
+        {% for category, message in messages%}
+        <div class="alert alert-{{category}}">
+          {{message}}
+        </div>
+        {%endfor%}
+      {%endif%}
+      {%endwith%}
+    </div>
+
+    <div class="container-fluid" id="SignUpForm">
+      <!-- Asking User to Enter their first name -->
       <div>
-        {% with messages = get_flashed_messages(with_categories=true) %} {%if
-        messages%} {% for category, message in messages%}
-        <div class="alert alert-{{category}}">{{message}}</div>
-        {%endfor%} {%endif%} {%endwith%}
+        {% with messages = get_flashed_messages(with_categories=true) %} 
+        {%if messages%} 
+          {% for category, message in messages%}
+            <div class="alert alert-{{category}}">{{message}}</div>
+          {%endfor%} {%endif%} {%endwith%}
       </div>
 
-      <!-- Beginning of the form -->
       <div class="content-section">
         <form method="POST" action="">
           {{form.hidden_tag()}}
           <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Login</legend>
+            <legend class="border-bottom mb-4">Join Today!</legend>
+            <!-- First Name of the User -->
+            <div class="form-group">
+              {{form.fname.label(class="form-control-label")}}
+
+              <!-- Prints out errors if any-->
+              {%if form.fname.errors%}
+                {{form.fname(class="form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.fname.errors%}
+                    <alert>{{error}}</alert>
+                  {%endfor%}
+                </div>
+                {%else%}
+                  {{form.fname(class="form-control form-control-lg")}}
+              {%endif%}
+
+              
+            </div>
+
+            <!-- Last Name of the User -->
+            <div class="form-group">
+              {{form.lname.label(class="form-control-label")}}
+              
+              <!-- Prints out errors if any-->
+              {%if form.lname.errors%}
+                {{form.lname(class="form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.lname.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+                {%else%}
+                  {{form.lname(class="form-control form-control-lg")}}
+              {%endif%}
+              
+            </div><br>
+
             <!-- Email of the User -->
             <div class="form-group">
               {{form.email.label(class="form-control-label")}}
-
+                            
               <!-- Prints out errors if any-->
-              {%if form.email.errors%} {{form.email(class="form-control-lg
-              is-invalid")}}
-              <div class="invalid-feedback">
-                {%for errors in form.email.errors%}
-                <span>{{error}}</span>
-                {%endfor%}
-              </div>
-              {%else%} {{form.email(class="form-control form-control-lg")}}
+              {%if form.email.errors%}
+                {{form.email(class="form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.email.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+                {%else%}
+                  {{form.email(class="form-control form-control-lg")}}
               {%endif%}
-            </div>
+
+            </div><br>
 
             <!-- Password for the User -->
             <div class="form-group">
               {{form.password.label(class="form-control-label")}}
-
+                            
               <!-- Prints out errors if any-->
-              {%if form.password.errors%} {{form.password(class="form-control-lg
-              is-invalid")}}
-              <div class="invalid-feedback">
-                {%for errors in form.password.errors%}
-                <span>{{error}}</span>
-                {%endfor%}
-              </div>
-              {%else%} {{form.password(class="form-control form-control-lg")}}
+              {%if form.password.errors%}
+                {{form.password(class="form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.password.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+                {%else%}
+                  {{form.password(class="form-control form-control-lg")}}
               {%endif%}
+
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              {{form.confirm_password.label(class="form-control-label")}}
+                            
+              <!-- Prints out errors if any-->
+              {%if form.confirm_password.errors%}
+                {{form.confirm_password(class="form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.confirm_password.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+                {%else%}
+                  {{form.confirm_password(class="form-control form-control-lg")}}
+              {%endif%}
+
             </div>
           </fieldset>
           <div class="form-group">
-            {{form.submit_login(class="btn btn-outline-info")}}
+            {{form.submit_signup(class="btn btn-outline-info")}}
           </div>
         </form>
       </div>
 
-      <!-- Asking user if they need an account -->
       <div class="border-top pt-3">
         <large class="text-muted">
-          Need an Account?<a class="ml-2" href="{{url_for('signup')}}"
-            >Sign Up</a
-          >
+          Already have an account?<a class="ml-2" href="{{url_for('login')}}">Sign In</a>
         </large>
-      </div>
+      </div><br>
 
-      <!-- If user forgot their password -->
-      <!-- <small class="text-muted ml-2">
-        <a href="#">Forgot Password?</a>
-      </small> -->
-    </div>
-    <br />
+
+
 
     <!-- Footer -->
     <footer class="container-fluid text-center">
