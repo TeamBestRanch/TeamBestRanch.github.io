@@ -44,6 +44,31 @@
   <body>
     <!-- Navigation Bar Code -->
     <nav class="navbar fixed-top" role="navigation">
+      <!-- If the user is logged in, this navbar is shown -->
+      {% if current_user.is_authenticated %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- If the user is not logged in, this navbar is shown -->
+    {% else %}
       <div class="container-fluid">
         <a class="navbar-brand" href="home">Lost in Sauce</a>
         <button
@@ -68,6 +93,7 @@
           </ul>
         </div>
       </div>
+      {% endif %}
     </nav>
     <!-- End of Navigation Bar -->
 
