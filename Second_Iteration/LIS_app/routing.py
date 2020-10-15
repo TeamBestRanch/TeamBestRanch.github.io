@@ -5,6 +5,8 @@ from LIS_app.database import User, Restaurant, RatingButton
 from flask_login import login_user, current_user, logout_user
 
 # Page Routes
+
+
 @app.route("/")
 @app.route("/home",  methods=['GET', 'POST'])
 def Home():
@@ -17,7 +19,7 @@ def login():
         return redirect(url_for('RestaurantRankings'))
     form = LoginForm()
     if form.validate_on_submit():
-        usr = User.query.filter_by(email = form.email.data).first()
+        usr = User.query.filter_by(email=form.email.data).first()
         if usr and (form.password.data == usr.password):
             login_user(usr)
             return redirect(url_for('RestaurantRankings'))
@@ -46,12 +48,18 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', title='Sign Up', form=form)
 
+
 @app.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for('Home'))
 
+
 @app.route('/RestaurantRankings')
 def RestaurantRankings():
     return render_template('rankings.html', title='Restaurant Rankings')
 
+
+@app.route('/UserPage')
+def UserPage():
+    return render_template('userpage.html', title='User Page')
