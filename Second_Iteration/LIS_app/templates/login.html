@@ -8,10 +8,8 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@700&display=swap" rel="stylesheet">
 
     <link
       rel="stylesheet"
@@ -79,9 +77,9 @@
     <!-- End of Navigation Bar -->
 
     <!-- Log In Form for current users logging in -->
-    <div class="container" id="LoginForm">
+    <div class="container">
       <!-- Message to let user know they have logged in -->
-      <div>
+      <div id="LoginForm">
         {% with messages = get_flashed_messages(with_categories=true) %} 
         {%if messages%} 
           {% for category, message in messages%}
@@ -90,6 +88,7 @@
       </div>
 
       <!-- Beginning of the form -->
+      <div class="login">
       <div class="content-section">
         <form method="POST" action="">
           {{form.hidden_tag()}}
@@ -129,7 +128,7 @@
             </div>
           </fieldset>
           <div class="form-group">
-            {{form.submit_login(class="btn btn-outline-info")}}
+            {{form.submit_login(class="btn btn-default")}}
           </div>
         </form>
       </div>
@@ -147,7 +146,8 @@
       <!-- <small class="text-muted ml-2">
         <a href="#">Forgot Password?</a>
       </small> -->
-    </div>
+        </div>
+      </div>
     <br />
 
     <!-- Footer -->

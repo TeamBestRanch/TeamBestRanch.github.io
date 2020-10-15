@@ -2,6 +2,8 @@ footer {
   width: 100%;
   background-color: #000000;
   color: #fff;
+  background: url('../static/img/pexels-francesco-ungaro-998641.jpg');
+  background-size: 300px 100px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -60,5 +62,5 @@ footer .team-members li {
 }
 
 .fab:hover {
-  color: #d3af37;
+  color: #440BD4;
 }
