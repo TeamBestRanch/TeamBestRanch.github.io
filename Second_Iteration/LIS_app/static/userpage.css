@@ -1,11 +1,10 @@
-<style type="text/css">
 form h1 {
-color: white;
+color: black;
 text-align: center;
 }
 form {
 font-size: 22px;
-color: white;
+color: black;
 }
 input {
 display: block;
@@ -13,13 +12,12 @@ clear: both;
 }
 fieldset {
 margin: 1em 180;
-background-color: pink;
+background-color: Ivory;
 }
 label input {
 display: block;
 color: red;
 }
 body {
-background: blue;
+background: LightSlateGrey;
 }
-</style>
