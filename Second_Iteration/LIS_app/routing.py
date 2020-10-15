@@ -22,7 +22,7 @@ def login():
         usr = User.query.filter_by(email=form.email.data).first()
         if usr and (form.password.data == usr.password):
             login_user(usr)
-            return redirect(url_for('RestaurantRankings'))
+            return redirect(url_for('UserPage'))
         else:
             flash('Login Unsuccessful. Please check email & password!', 'danger')
     return render_template('login.html', title='Login', form=form)
