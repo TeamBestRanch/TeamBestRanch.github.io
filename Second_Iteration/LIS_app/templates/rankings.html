@@ -13,10 +13,9 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@700&display=swap" rel="stylesheet">
 
     <link
       rel="stylesheet"
@@ -29,6 +28,7 @@
       type="text/css"
       href="{{ url_for('static', filename='rankings.css') }}"
     />
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -40,103 +40,8 @@
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
     />
-
-    <style>
-      .checked {
-        color: orange;
-      }
-      </style>
-      
-      <style>
-      body {font-family: Arial, Helvetica, sans-serif;}
-      
-      #myImg {
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      
-      #myImg:hover {opacity: 0.7;}
-      
-      
-      .modal {
-        display: none; 
-        position: fixed; 
-        z-index: 1;
-        padding-top: 100px; 
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto; 
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.9);
-      }
-      
-      
-      .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-      }
-      
-      #caption {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        text-align: center;
-        color: #ccc;
-        padding: 10px 0;
-        height: 150px;
-      }
-      
-      
-      .modal-content, #caption {  
-        -webkit-animation-name: zoom;
-        -webkit-animation-duration: 0.6s;
-        animation-name: zoom;
-        animation-duration: 0.6s;
-      }
-      
-      @-webkit-keyframes zoom {
-        from {-webkit-transform:scale(0)} 
-        to {-webkit-transform:scale(1)}
-      }
-      
-      @keyframes zoom {
-        from {transform:scale(0)} 
-        to {transform:scale(1)}
-      }
-      
-      
-      .close {
-        position: absolute;
-        
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
-      
-      .close:hover,
-      .close:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      
-      
-      @media only screen and (max-width: 700px){
-        .modal-content {
-          width: 100%;
-        }
-      }
-      </style>
-
   </head>
+  
   <body>
     <!-- Navigation Bar Code -->
     <nav class="navbar fixed-top" role="navigation">
@@ -194,10 +99,12 @@
     <!-- End of Navigation Bar -->
 
     <!-- Carousel start -->
-    <div class="container-fluid">
+    <div class="container-fluid carousel">
       <br />
       <br />
       <br />
+        <h1 class="carousel-header"> CURRENT TOP 10 </h1>
+
       <div id="shopCarousel" class="carousel slide carousel-multi-item" data-ride="carousel">
 
         <!-- Indicators -->
@@ -342,13 +249,16 @@
       </div>
       <br />
       <br />
+      </div>
     </div>
     <!-- Carousel End -->
 
-    <div class="container-fluid">
+    <!-- Ranking List -->
+    <div class="container-fluid rankings-list">
       <br>
       <br>
       <br>
+        <h1 class="carousel-header"> BEST RANCH RANKING LIST </h1>
       <div class="row ">
         <div class="col-sm-4 images">
           <img
@@ -361,26 +271,14 @@
           <center>
             <b>User Rating: 5</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
             <br><br>
-
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
-
-
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
+            
+              <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
           </center>
         </div>
         <div class="col-sm-4 images">
@@ -395,25 +293,14 @@
             <b>User Rating: 5</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
             <br><br>
 
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
 
-
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
           </center>
         </div>
 
@@ -429,25 +316,14 @@
             <b>User Rating: 4</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
             <br><br>
 
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
 
-
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+            </div>
           </center>
         </div>
 
@@ -469,25 +345,14 @@
             <b>User Rating: 4</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
             <br><br>
 
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
 
-
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
           </center>
         </div>
 
@@ -503,25 +368,15 @@
             <b>User Rating: 3</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
             <br><br>
 
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
 
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
 
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
           </center>
         </div>
 
@@ -537,25 +392,15 @@
               <b>User Rating: 3</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
               <br><br>
 
-              <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-              <label for="star5" title="text"> NEED THE SAUCE</label>
-              <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-              <label for="star4" title="text"> perfect</label>
 
+              <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
 
-              <br>
-              <br>
-              <!-- Meh -->
-              <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-              <label for="star3" title="text"> Meh</label>
-
-              <!-- Almost Perfect -->
-              <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-              <label for="star1" title="text"> Hate It</label>
-
-              <!-- Need the Sauce -->
-              <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-              <label for="star2" title="text"> Abstain</label>
           </center>
         </div>
       </div>
@@ -576,25 +421,15 @@
             <b>User Rating: 2</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
             <br><br>
 
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
 
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+            </div>
 
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
           </center>
         </div>
         
@@ -610,25 +445,14 @@
               <b>User Rating: 2</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
               <br><br>
 
-              <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-              <label for="star5" title="text"> NEED THE SAUCE</label>
-              <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-              <label for="star4" title="text"> perfect</label>
+              <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
 
-
-              <br>
-              <br>
-              <!-- Meh -->
-              <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-              <label for="star3" title="text"> Meh</label>
-
-              <!-- Almost Perfect -->
-              <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-              <label for="star1" title="text"> Hate It</label>
-
-              <!-- Need the Sauce -->
-              <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-              <label for="star2" title="text"> Abstain</label>
           </center>
         </div>
 
@@ -644,32 +468,24 @@
             <b>User Rating: 1</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
             <br><br>
 
-            <button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-            <label for="star5" title="text"> NEED THE SAUCE</label>
-            <button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-            <label for="star4" title="text"> perfect</label>
 
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+            </div>
 
-            <br>
-            <br>
-            <!-- Meh -->
-            <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-            <label for="star3" title="text"> Meh</label>
-
-            <!-- Almost Perfect -->
-            <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-            <label for="star1" title="text"> Hate It</label>
-
-            <!-- Need the Sauce -->
-            <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-            <label for="star2" title="text"> Abstain</label>
           </center>
         </div>
       </div>
       <br>
       <br>
     </div>
-    <!--  -->
+
+    <!-- End of Ranking List -->
+
 
     <!-- Footer -->
     <br /><br />
