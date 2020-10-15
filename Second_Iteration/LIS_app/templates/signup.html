@@ -73,7 +73,7 @@
     </nav>
     <!-- End of Navigation Bar -->
 
-
+    
     <div class="row">
       <div>
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -101,7 +101,7 @@
           <form method="POST" action="">
             {{form.hidden_tag()}}
             <fieldset class="form-group">
-              <legend class="border-bottom mb-4">Join Today!</legend>
+              <legend class="border-bottom mb-4"><br>Join Today!</legend><br>
               <!-- First Name of the User -->
               <div class="form-group">
                 {{form.fname.label(class="form-control-label")}}
@@ -117,7 +117,6 @@
                   {%else%}
                     {{form.fname(class="form-control form-control-lg")}}
                 {%endif%}
-
 
               </div>
 
@@ -213,6 +212,7 @@
         </center>
       </div>
     </div>
+    <br>
 
 
 

@@ -2,60 +2,57 @@ html,
 body {
   height: 100%;
   width: 100%;
-   font-family: 'Tienne', serif;
-   background: url('../static/img/pexels-valeria-boltneva-1123250.jpg');
-   background-size: 100%;
+  font-family: "Tienne", serif;
+  background: url("../static/img/pexels-valeria-boltneva-1123250.jpg");
+  background-size: 100%;
 }
 
 .container {
-
-    display: table;
-    height: 100%;
-    position: relative;
-    width: 50%;
-    background-size: cover;
-    padding-top: 18%;
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 50%;
+  background-size: cover;
+  padding-top: 18%;
 }
 
 .login {
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 25px;
-    background-clip: border-box;
-    padding: 15px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  background-clip: border-box;
+  padding: 15px;
 }
 
 #SignUpForm {
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 25px;
-    height: 60%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  height: 60%;
 }
 
 .column {
-    display: flex 50%;
-    width: 45%;
-    text-align: center;
-    justify-container: center;
+  display: flex 50%;
+  width: 45%;
+  text-align: center;
+  justify-container: center;
 }
 
 .text-muted {
-    color: #fff;
+  color: #fff;
 }
 
 .form-group {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .main-logo {
-    justify-content: center;
-    height: 90%;
-    width: 60%;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
 }
 
 .row {
-    padding-top: 7%;
+  padding-top: 7%;
 }
-
-
 
 .btn-default:hover {
   background-color: #000000;
@@ -63,14 +60,17 @@ body {
 }
 
 .btn-default {
-  background-image: linear-gradient(to bottom right,
-    rgba(68, 0, 163, 0.7), rgba(0, 51, 153, 0.7));
-    color: #fff;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(68, 0, 163, 0.7),
+    rgba(0, 51, 153, 0.7)
+  );
+  color: #fff;
 }
 
 .main-logo {
-    margin-top: 25%;
-    padding-right: 10%;
-    height: 250px;
-    padding-bottom: 10px;
+  margin-top: 25%;
+  padding-right: 10%;
+  height: 250px;
+  padding-bottom: 10px;
 }
