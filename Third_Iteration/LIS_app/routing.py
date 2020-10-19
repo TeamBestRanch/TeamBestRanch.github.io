@@ -63,3 +63,10 @@ def RestaurantRankings():
 @app.route('/UserPage')
 def UserPage():
     return render_template('userpage.html', title='User Page')
+<<<<<<< HEAD
+=======
+
+@app.route('/TierList')
+def TierList():
+    return render_template('tierlist.html', title='Tiers')
+>>>>>>> Tiffanny
