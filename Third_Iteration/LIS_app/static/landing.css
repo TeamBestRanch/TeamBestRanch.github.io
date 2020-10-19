@@ -1,0 +1,79 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Landing Page Styling */
+#home {
+  /* background: url("../img/pexels-lukas-1352269.jpg") no-repeat center center fixed; */
+  transition-timing-function: ease;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: fixed;
+  background-size: cover;
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.landing-text {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.landing-text .landing-title {
+  font-family: 'Slackey', cursive;
+  font-size: 600%;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 6px #000000;
+}
+
+.landing-title h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.landing-title h1 {
+  font-size: 100%;
+}
+
+.landing-title h2 {
+  font-size: 70%;
+}
+
+.rankings-btn {
+  padding: 0.5% 0;
+}
+
+.site-logo .main-logo {
+  width: 20%;
+  height: 30%;
+}
+
+.btn-default:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+.btn-default {
+  background-image: linear-gradient(to bottom right,
+    rgba(68, 0, 163, 0.7), rgba(0, 51, 153, 0.7));
+    color: #fff;
+}
+
+.Log-in-sign-up {
+  padding: 0.5% 0;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+  .landing-text h1 {
+    font-size: 90%;
+  }
+}
