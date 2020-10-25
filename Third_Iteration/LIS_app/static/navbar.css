@@ -1,16 +1,11 @@
 /* Navigation Styling */
 
 .navbar {
-<<<<<<< HEAD
-   background-image: linear-gradient(to bottom right,
-    rgba(68, 0, 163, 0.6), rgba(0, 51, 153, 0.6));
-=======
   background-image: linear-gradient(
     to bottom right,
     rgba(68, 0, 163, 0.685),
     rgba(0, 51, 153, 0.795)
   );
->>>>>>> Tiffanny
   border: 0;
   padding: 0.5% 0;
   font-size: 1.2em;
@@ -25,11 +20,7 @@
   color: #fffefb;
   text-shadow: 2px 2px 3px #d3d4ee;
   vertical-align: center;
-<<<<<<< HEAD
-  font-family: 'Slackey', cursive;
-=======
   font-family: "Slackey", cursive;
->>>>>>> Tiffanny
 }
 
 .navbar-brand:hover {
