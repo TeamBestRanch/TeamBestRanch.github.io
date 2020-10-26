@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from LIS_app import app, db, bcrypt
-from LIS_app.forms import RegistrationForm, LoginForm
+from LIS_app.forms import RegistrationForm, LoginForm, newRestaurantForm
 from LIS_app.database import User, Restaurant, RatingButton
 from flask_login import login_user, current_user, logout_user
 
@@ -49,6 +49,22 @@ def signup():
     return render_template('signup.html', title='Sign Up', form=form)
 
 
+@app.route('/Restaurants', methods=['POST', 'GET'])
+def restaurant_db():
+    form = newRestaurantForm()
+    if form.validate_on_submit():
+        restaurant = Restaurant(restaurant_name=form.restaurant_name.data, ranch_name=form.ranch_name.data,
+                                ranch_img=form.image.data, avg_score=form.base_score)
+
+        db.session.add(restaurant)
+        db.session.commit()
+        return redirect(url_for('restaurant_db'))
+
+    else:
+        restaurants = Restaurant.query.order_by(Restaurant.restaurant_name)
+        return render_template('restaurantsdb.html', title='Restaurants', form=form, restaurants=restaurants)
+
+
 @app.route("/logout")
 def logout():
     logout_user()
@@ -57,7 +73,8 @@ def logout():
 
 @app.route('/RestaurantRankings')
 def RestaurantRankings():
-    return render_template('rankings.html', title='Restaurant Rankings')
+    restaurants = Restaurant.query.order_by(Restaurant.restaurant_name)
+    return render_template('rankings.html', title='Restaurant Rankings', restaurants=restaurants)
 
 
 @app.route('/UserPage')
@@ -68,3 +85,4 @@ def UserPage():
 @app.route('/TierList')
 def TierList():
     return render_template('tierlist.html', title='Tiers')
+
