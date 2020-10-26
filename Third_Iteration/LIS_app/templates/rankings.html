@@ -259,6 +259,31 @@
     </div>
     <!-- Carousel End -->
 
+    <!-- Dynamically display restaurants in DB -->
+    <div class="container-fluid rankings-list">
+        <div class="row ">
+            {% for restaurant in restaurants %}
+            <div class="col-sm-4 images">
+                <div class="restaurant-card">
+                    <h1 class="restaurant-name">{{ restaurant.restaurant_name }}</h1>
+                    <h2 class="ranch">{{ restaurant.ranch_name }}</h2>
+                    <img class="card-img" src="static/img/{{ restaurant.ranch_img }}" alt="Picture" width="340"
+                         height="250" id="myImg"/>
+                    <br>
+                    <div class="button-section">
+                        <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                        <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                        <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                        <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                        <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+                    </div>
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
     <!-- Ranking List -->
     <div class="container-fluid rankings-list">
       <br>
