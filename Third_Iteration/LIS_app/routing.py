@@ -1,8 +1,9 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, jsonify, request
 from LIS_app import app, db, bcrypt
 from LIS_app.forms import RegistrationForm, LoginForm, newRestaurantForm
 from LIS_app.database import User, Restaurant, RatingButton
 from flask_login import login_user, current_user, logout_user
+from sqlalchemy import func
 
 # Page Routes
 
@@ -65,6 +66,47 @@ def restaurant_db():
         return render_template('restaurantsdb.html', title='Restaurants', form=form, restaurants=restaurants)
 
 
+@app.route('/process', methods=['POST'])
+def process():
+    if request.method == "POST":
+        restName = request.form['restaurant']
+        userName = request.form['user']
+        score = request.form['score']
+
+        # print(restName, ' ', userName, ' ', score)
+        if userName != 'no-user':
+            user = db.session.query(User).filter_by(email=userName).first()
+            restaurant = db.session.query(Restaurant).filter_by(restaurant_name=restName).first()
+            newScore = RatingButton(customer_id=user.user_id, restaurant_id=restaurant.restaurant_id, score=score)
+
+            db.session.add(newScore)
+            db.session.commit()
+
+            scores_by_restaurant = RatingButton.query.filter_by(restaurant_id=restaurant.restaurant_id).all()
+            # print(scores_by_restaurant)
+            # print(restaurant.restaurant_id, restaurant.avg_score)
+
+            # Calculate average score
+            total = 0
+            val = 0
+            for t in scores_by_restaurant:
+                total += 1
+                val += t.score
+
+            avg = round(val/total, 2)
+            # print(avg)
+
+            restaurant.avg_score = avg
+            db.session.commit()
+
+            # TO DELETE ALL VALUES IN RATINGBUTTON DB:
+            # db.session.query(RatingButton).delete()
+            # db.session.commit()
+
+            return jsonify({'avg' : avg})
+    return jsonify(({'error' : 'Invalid user'}))
+
+
 @app.route("/logout")
 def logout():
     logout_user()
@@ -85,4 +127,3 @@ def UserPage():
 @app.route('/TierList')
 def TierList():
     return render_template('tierlist.html', title='Tiers')
-

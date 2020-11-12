@@ -261,8 +261,13 @@
 
     <!-- Dynamically display restaurants in DB -->
     <div class="container-fluid rankings-list">
-        <div class="row ">
+        <div class="row">
             {% for restaurant in restaurants %}
+                {% if current_user.is_authenticated %}
+                    {% set user_id = current_user.email %}
+                {% else %}
+                    {% set user_id = 'no-user' %}
+                {% endif %}
             <div class="col-sm-4 images">
                 <div class="restaurant-card">
                     <h1 class="restaurant-name">{{ restaurant.restaurant_name }}</h1>
@@ -270,13 +275,28 @@
                     <img class="card-img" src="static/img/{{ restaurant.ranch_img }}" alt="Picture" width="340"
                          height="250" id="myImg"/>
                     <br>
-                    <div class="button-section">
-                        <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
-                        <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
-                        <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
-                        <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
-                        <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
-                    </div>
+                    <h3 id="setScore{{ loop.index }}" class="restaurant-score">User Rating: {{ restaurant.avg_score }}</h3>
+                    <form class="form-inline">
+                        <div class="button-section">
+                            <button type="button" class="btn btn-outline-light need" id="{{ loop.index }}5"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 5, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128523;</span>
+                            </button>
+                            <button type="button" class="btn btn-outline-light perfect" id="{{ loop.index }}4"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 4, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128522;</span> </button>
+                            <button type="button" class="btn btn-outline-light meh" id="{{ loop.index }}3"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 3, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128528;</span> </button>
+                            <button type="button" class="btn btn-outline-light hate" id="{{ loop.index }}2"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 2, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128544;</span> </button>
+                            <button type="button" class="btn btn-outline-light abstain" id="{{ loop.index }}1"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 1, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128566;</span> </button>
+                        </div>
+                        <br>
+                    </form>
                 </div>
                 <br>
             </div>
@@ -636,11 +656,8 @@
             modal.style.display = "none";
         }
     </script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type=text/javascript src="{{url_for('static', filename='rating.js') }}"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
