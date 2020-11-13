@@ -1,475 +1,727 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Team Best Ranch Ranking List</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
+    <head>
+        <meta charset="utf-8">
+        <title>Team Best Ranch Ranking List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='css/all.css') }}"
-    />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='rankings.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='navbar.css') }}"
-    />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="styles/rankings.css" rel="stylesheet" />
+        <link href="styles/navbar.css" rel="stylesheet" />
+        <link href="styles/styles.css" rel="stylesheet" />
+		
+		<style>
+.checked {
+  color: orange;
+}
+</style>
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
-  </head>
-  <body>
-    <!-- Navigation Bar Code -->
-    <nav class="navbar fixed-top" role="navigation">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="home">Lost in Sauce</a>
-        <button
-          type="button"
-          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
-          data-toggle="collapse"
-          data-target="#collapsingNavbar1"
-        >
-          ☰
-        </button>
-        <div class="collapse navbar-collapse" id="collapsingNavbar1">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="RestaurantRankings">Ratings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="signup">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End of Navigation Bar -->
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-    <div class="container-fluid">
-      <br />
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/ranchpic1.jpg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
+#myImg:hover {opacity: 0.7;}
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture2.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
 
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture3.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-      </div>
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture4.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+.close {
+  position: absolute;
+  
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture5.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
+    </head>
+    <body>
+	
+	<br>
+	<br>
+	<br>
+	<br>
 
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
+	
+<div class="container-fluid" >
+ <br>
+ <br>
+ <br>
+  <div class="row ">
+    <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture1.jpeg" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id01" class="w3-modal">
+             <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture1.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture1.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture1.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture1.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-      </div>
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+        <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture2.jpeg" onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id02" class="w3-modal">
+              <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture2.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture2.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture2.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture2.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture8.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
+    <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture3.jpeg" onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id03" class="w3-modal">
+              <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture3.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture3.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture3.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture3.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
 
-        <div class="col-sm-4 images">
-          <img
-            src="{{ url_for('static', filename='img/picture9.jpeg')}}"
-            alt="Picture"
-            width="420"
-            height="350"
-          />
-          <center><b>RANCH RATING</b></center>
-          <button type="button">
-            <span style="font-size: 25px">&#128544;</span>
-          </button>
-          <label for="star1" title="text"> Hate It</label>
-          <button type="button">
-            <span style="font-size: 25px">&#128566;</span>
-          </button>
-          <label for="star2" title="text"> Abstain</label>
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
 
-          <!-- Meh -->
-          <button type="button">
-            <span style="font-size: 25px">&#128528;</span>
-          </button>
-          <label for="star3" title="text"> Meh</label>
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
 
-          <!-- Almost Perfect -->
-          <button type="button">
-            <span style="font-size: 25px">&#128522;</span>
-          </button>
-          <label for="star4" title="text"> perfect</label>
+  </div>
+<br>
+<br>
+   <div class="row ">
+    <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture4.jpeg" onclick="document.getElementById('id04').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id04" class="w3-modal">
+              <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture4.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture4.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture4.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture4.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
 
-          <!-- Need the Sauce -->
-          <button type="button">
-            <span style="font-size: 25px">&#128523;</span>
-          </button>
-          <label for="star5" title="text"> NEED THE SAUCE</label>
-        </div>
-      </div>
-      <br />
-      <br />
-    </div>
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
 
-    <!-- Footer -->
-    <br /><br />
-    <footer class="container-fluid text-center">
-      <div class="footer-content">
-        <div class="footer-section about-us">
-          <h3>Team Best Ranch Is:</h3>
-          <!-- <ul class="team-members"> -->
-          Tiffanny Hernaez<br />
-          Diana Joya<br />
-          Mikias Zeleke<br />
-          Patrick Kilroy<br />
-          Jeffrey Russell<br />
-          <!-- </ul> -->
-        </div>
-        <div class="footer-section repository">
-          <h3>Github Repository</h3>
-          <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io">
-            <!-- <img src="src={{ url_for('static', filename='img/github.jpg')}}"></img> -->
-            <i class="fab fa-github" href=""></i>
-          </a>
-        </div>
-        <div class="footer-section logo">
-          <a href="home">
-            <img
-              class="footer-logo"
-              src="{{ url_for('static', filename='img/logo.png') }}"
-              alt="TeamBestRanch Logo"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
-      </div>
-    </footer>
-    <!-- End of Footer -->
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
 
-    <!-- Scripts Section -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+        <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture5.jpeg" onclick="document.getElementById('id05').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id05" class="w3-modal">
+             <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id05').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture5.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture5.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture5.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture5.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
+
+
+    <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture6.jpeg" onclick="document.getElementById('id06').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id06" class="w3-modal">
+              <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id06').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture6.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture6.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture6.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture6.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
+
+  </div>
+<br>
+<br>
+  <div class="row ">
+    <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture7.jpeg" onclick="document.getElementById('id07').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id07" class="w3-modal">
+             <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id07').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture7.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture7.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture7.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture7.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
+
+
+        <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture8.jpeg" onclick="document.getElementById('id08').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id08" class="w3-modal">
+             <div class="w3-modal-content">
+                <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id08').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture8.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture8.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture8.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture8.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
+
+
+    <div class="col-sm-4 images" >
+	   <div class="w3-container">
+        <img src="image/picture9.jpeg" onclick="document.getElementById('id09').style.display='block'" class="w3-button w3-black" alt="Picture" width="420" height="350">
+          <div id="id09" class="w3-modal">
+              <div class="w3-modal-content" style="height: 250px;">
+                <div class="w3-container">
+                  <span onclick="document.getElementById('id09').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                   
+		             <div class="container-fluid" >
+						<div class="row">
+						  <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture9.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -70px;"> 
+							  <br>
+					          <img src="image/picture9.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -150px;"> 
+							  <br>
+				              <img src="image/picture9.jpeg" alt="burger" width="100" height="35" style="margin-bottom: -235px;"> 
+						  </div>
+                          <div class="col-sm-4" style="text-align:center">
+							  <img src="image/picture9.jpeg" alt="burger" width="250" height="155" style="margin-bottom: -215px;"> 
+						  </div>
+						  <div class="col-sm-4" style="text-align:center">
+                             <p style="margin-bottom: 80px;"></p>
+                             <p>add desCriPtiOn thing here-2</p>
+							 <p >add desCriPtiOn thing here-3</p>
+					      </div>
+                       </div>
+                     </div>
+                </div>
+             </div>
+          </div>
+         </div>
+	   	 <center><b></b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                   <br><br>
+				   
+					<button type="button" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+					<button type="button" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                    <!-- Meh -->
+                    <button type="button" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+
+                    <!-- Almost Perfect -->
+                    <button type="button" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+
+                    <!-- Need the Sauce -->
+                       <button type="button" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+     </center>
+	</div>
+
+  </div>
+
+  </div>
+   <br>
+  <br>
+</div>
+
+        <!-- Navigation Bar Code -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index.html">Team Best Ranch</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsingNavbar1">
+                        ☰
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse" id="collapsingNavbar1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="rankings.html">Ratings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup.html">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Navigation Bar -->
+
+
+      
+        <!-- End of Ranch Rating -->
+
+
+ 
+
+        <!-- Footer -->
+        <footer class="container-fluid text-center">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Team Best Ranch Info</h3>
+                    <br>
+                    <h4>Team Members...</h4>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Github Repository</h3>
+                    <br>
+                    <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io" class="">Note: add github icon!!</a>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Note: add team best ranch img!!</h3>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+		
+		<div id="myModal" class="modal">
+		  <span class="close">&times;</span>
+		  <img class="modal-content" id="img01">
+		 <div id="caption"></div>
+       </div>
+
+
+<script>
+function myFunction1() {
+  alert("NEED THE SAUCE");
+}
+function myFunction2() {
+  alert("perfect");
+}
+function myFunction3() {
+  alert("Meh");
+}
+function myFunction4() {
+  alert("Hate It");
+}
+function myFunction5() {
+  alert("Abstain");
+}
+</script>
+
+<script>
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg");
+var img2 = document.getElementById("myImg2");
+var img3 = document.getElementById("myImg3");
+var img4 = document.getElementById("myImg4");
+var img5 = document.getElementById("myImg5");
+var img6 = document.getElementById("myImg6");
+var img7 = document.getElementById("myImg7");
+var img8 = document.getElementById("myImg8");
+var img9 = document.getElementById("myImg9");
+
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img2.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img3.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img4.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img5.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img6.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img7.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img8.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+img9.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+  
+}
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+        <!-- Scripts Section -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+
 </html>
