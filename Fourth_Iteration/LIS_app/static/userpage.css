@@ -1,0 +1,23 @@
+form h1 {
+  color: black;
+  text-align: center;
+}
+form {
+  font-size: 22px;
+  color: black;
+}
+input {
+  display: block;
+  clear: both;
+}
+fieldset {
+  margin: 1em 180;
+  background-color: Ivory;
+}
+label input {
+  display: block;
+  color: red;
+}
+body {
+  background: LightSlateGrey;
+}
