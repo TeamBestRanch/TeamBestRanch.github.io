@@ -1,0 +1,75 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Tienne", serif;
+  /* background: url("../static/img/chickenBG1.png"); */
+  background: url("../static/img/ChickensInSpace.jpg");
+  background-size: 100%;
+}
+form h1 {
+  color: black;
+  text-align: center;
+}
+form {
+  font-size: 22px;
+  color: black;
+}
+input {
+  display: block;
+  clear: both;
+}
+fieldset {
+  margin: 1em 180;
+  background-color: Ivory;
+}
+label input {
+  display: block;
+  color: red;
+}
+
+.userBox {
+  display: table;
+  height: 85%;
+  margin: 4% auto;
+  position: center;
+  width: 75%;
+  background-size: cover;
+  padding-top: 1%;
+  padding-left: 5%;
+  border: 4px solid #ffd700;
+  color: black;
+  background: url("../static/img/userCard.png");
+  background-size: 100%;
+  /* background-color: rgba(68, 0, 163); */
+
+  border-radius: 10px;
+}
+
+.row {
+  padding-top: 5%;
+  padding-bottom: 8%;
+}
+
+.table {
+  color: black;
+}
+
+.userGreeting {
+  vertical-align: center;
+  font-family: "Slackey", cursive;
+  position: center;
+}
+
+label {
+  font-family: "Slackey", cursive;
+}
+input {
+  font-family: "Slackey", cursive;
+}
+
+#UserNav {
+  background-color: lightgray;
+  color: black;
+  font-family: "Slackey", cursive;
+}

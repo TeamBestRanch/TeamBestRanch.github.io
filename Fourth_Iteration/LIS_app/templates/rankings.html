@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Team Best Ranch Ranking List</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@700&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/all.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='rankings.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='navbar.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  
+  <body>
+    <!-- Navigation Bar Code -->
+    <nav class="navbar fixed-top" role="navigation">
+      <!-- If the user is logged in, this navbar is shown -->
+      {% if current_user.is_authenticated %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="UserPage">Nuggie Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ranch Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="TierList">Nuggie Rank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- If the user is not logged in, this navbar is shown -->
+    {% else %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+    </nav>
+    <!-- End of Navigation Bar -->
+
+    <!-- Carousel start -->
+    <div class="container-fluid carousel">
+      <br />
+      <br />
+      <br />
+        <h1 class="carousel-header"> CURRENT TOP 10 </h1>
+
+      <div id="shopCarousel" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#shopCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#shopCarousel" data-slide-to="1"></li>
+          <li data-target="#shopCarousel" data-slide-to="2"></li>   
+        </ul>
+      
+       <!--First slide-->
+       <div class="carousel-inner">
+       <div class="carousel-item active">
+      
+          <div class="row">
+              <!-- First image on First slide-->
+              <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Swinger Bar and Grill</h5>
+                      <img class="card-img top" src="../static/img/picture1.jpeg" alt= "card image top">
+
+                      
+                  </div>
+                </div>
+                <!-- End First Image-->
+      
+      
+                <!-- Second Image on First Slide-->
+                <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Moooving Ranch</h5>
+                      <img class="card-img top" src="../static/img/picture2.jpeg" alt= "card image top">
+
+                      
+                  </div>
+                </div>
+                <!--End Second Image-->
+        
+              <!-- Third image on First Slide-->
+                <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Baskets and Buckets</h5>
+                      <img class="card-img top" src="../static/img/picture3.jpeg" alt= "card image top">
+
+                  </div>
+                </div>
+                <!-- End Third Image-->
+          </div>
+      
+        </div>
+        <!--/.First slide-->
+      
+        <!--Second Slide-->
+          <div class="carousel-item ">
+         
+             <div class="row">
+                 <!-- First image on Second slide-->
+                 <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Ranchless Wonders</h5>
+                      <img class="card-img top" src="../static/img/picture4.jpeg" alt= "card image top">
+
+                      
+                  </div>
+                   </div>
+                   <!-- End First Image-->
+         
+         
+                   <!-- Second Image on Second Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Ranchy Ranchers</h5>
+                          <img class="card-img top" src="../static/img/picture5.jpeg" alt= "card image top">
+ 
+                          
+                      </div>
+                   </div>
+                   <!--End Second Image-->
+           
+                 <!-- Third image on Second Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Horse Girls</h5>
+                          <img class="card-img top" src="../static/img/picture6.jpeg" alt= "card image top">
+
+                          
+                      </div>
+                   </div>
+                   <!-- End Third Image-->
+             </div>
+         
+           </div>
+        <!--End Second Slide-->
+      
+        <!-- Third Slide-->
+          <div class="carousel-item">
+         
+             <div class="row">
+                 <!-- First image on Third slide-->
+                 <div class="col-sm-4 images">
+                  <div class = "card">
+                      <h5 class="card-title">Greener Pastures</h5>
+                      <img class="card-img top" src="../static/img/picture7.jpeg" alt= "card image top">
+
+                  </div>
+                   </div>
+                   <!-- End First Image-->
+         
+         
+                   <!-- Second Image on Third Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Snowed Inn</h5>
+                          <img class="card-img top" src="../static/img/picture8.jpeg" alt= "card image top">
+
+                          
+                      </div>
+                   </div>
+                   <!--End Second Image-->
+           
+                 <!-- Third image on Third Slide-->
+                   <div class="col-sm-4 images">
+                      <div class = "card">
+                          <h5 class="card-title">Vegan Favorites</h5>
+                          <img class="card-img top" src="../static/img/picture9.jpeg" alt= "card image top">                          
+                      </div>
+                   </div>
+                   <!-- End Third Image-->
+             </div>
+         
+           </div>
+      
+        <!-- End Third Slide-->
+        
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#shopCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#shopCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+      <br />
+      <br />
+      </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Dynamically display restaurants in DB -->
+    <div class="container-fluid rankings-list">
+        <div class="row">
+            {% for restaurant in restaurants %}
+                {% if current_user.is_authenticated %}
+                    {% set user_id = current_user.email %}
+                {% else %}
+                    {% set user_id = 'no-user' %}
+                {% endif %}
+            <div class="col-sm-4 images">
+                <div class="restaurant-card">
+                    <h1 class="restaurant-name">{{ restaurant.restaurant_name }}</h1>
+                    <h2 class="ranch">{{ restaurant.ranch_name }}</h2>
+                    <img class="card-img" src="static/img/{{ restaurant.ranch_img }}" alt="Picture" width="340"
+                         height="250" id="myImg"/>
+                    <br>
+                    <h3 id="setScore{{ loop.index }}" class="restaurant-score">User Rating: {{ restaurant.avg_score }}</h3>
+                    <form class="form-inline">
+                        <div class="button-section">
+                            <button type="button" class="btn btn-outline-light need" id="{{ loop.index }}5"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 5, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128523;</span>
+                            </button>
+                            <button type="button" class="btn btn-outline-light perfect" id="{{ loop.index }}4"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 4, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128522;</span> </button>
+                            <button type="button" class="btn btn-outline-light meh" id="{{ loop.index }}3"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 3, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128528;</span> </button>
+                            <button type="button" class="btn btn-outline-light hate" id="{{ loop.index }}2"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 2, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128544;</span> </button>
+                            <button type="button" class="btn btn-outline-light abstain" id="{{ loop.index }}1"
+                                    data-button='{"restName": "{{ restaurant.restaurant_name }}", "userName": "{{ user_id }}", "score": 1, "loop_index": {{ loop.index }} }'>
+                                <span style='font-size:25px;'>&#128566;</span> </button>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Ranking List -->
+    <div class="container-fluid rankings-list">
+      <br>
+      <br>
+      <br>
+        <h1 class="carousel-header"> BEST RANCH RANKING LIST </h1>
+        <hr>
+      <div class="row ">
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/ranchpic1.jpg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg"
+          />
+          
+            </br>
+            <b>User Rating: 5</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+            <br><br>
+            
+              <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
+          
+        </div>
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture2.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg2"
+          />
+        </br>
+            <b>User Rating: 5</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+            <br><br>
+
+
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture3.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg3"
+          />
+        </br>
+            <b>User Rating: 4</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
+            <br><br>
+
+
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+            </div>
+          
+        </div>
+
+      </div> 
+      <!-- End of first row -->
+
+      <br>
+      <br>
+      <div class="row ">
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture4.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg4"
+          />
+        </br>
+            <b>User Rating: 4</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
+            <br><br>
+
+
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture5.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg5"
+          />
+        </br>
+            <b>User Rating: 3</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            <br><br>
+
+
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture6.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg6"
+          />
+        </br>
+              <b>User Rating: 3</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              <br><br>
+
+
+              <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
+
+          
+        </div>
+      </div>
+      <!-- End of row -->
+
+      <br>
+      <br>
+      <div class="row ">
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture7.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg7"
+          />
+        </br>
+            <b>User Rating: 2</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            <br><br>
+
+
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+            </div>
+        </div>
+        
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture8.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg8"
+          />
+        </br>
+              <b>User Rating: 2</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+              <br><br>
+
+              <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+              </div>
+        </div>
+
+        <div class="col-sm-4 images">
+          <img
+            src="{{ url_for('static', filename='img/picture9.jpeg')}}"
+            alt="Picture"
+            width="420"
+            height="350"
+            id="myImg9"
+          />
+        </br>
+            <b>User Rating: 1</b>&nbsp;&nbsp;<span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+            <br><br>
+
+
+            <div class="button-section">
+                <button type="button" class="btn btn-outline-light need" onclick="myFunction1()"> <span style='font-size:25px;'>&#128523;</span> </button>
+                <button type="button" class="btn btn-outline-light perfect" onclick="myFunction2()"> <span style='font-size:25px;'>&#128522;</span> </button>
+                <button type="button" class="btn btn-outline-light meh" onclick="myFunction3()"> <span style='font-size:25px;'>&#128528;</span> </button>
+                <button type="button" class="btn btn-outline-light hate" onclick="myFunction4()"> <span style='font-size:25px;'>&#128544;</span> </button>
+                <button type="button" class="btn btn-outline-light abstain" onclick="myFunction5()"> <span style='font-size:25px;'>&#128566;</span> </button>
+            </div>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+
+    <!-- End of Ranking List -->
+
+
+    <!-- Footer -->
+    <br /><br />
+    <footer class="container-fluid text-center">
+      <div class="footer-content">
+        <div class="footer-section about-us">
+          <h3>Team Best Ranch Is:</h3>
+          <!-- <ul class="team-members"> -->
+          Tiffanny Hernaez<br />
+          Diana Joya<br />
+          Mikias Zeleke<br />
+          Patrick Kilroy<br />
+          Jeffrey Russell<br />
+          <!-- </ul> -->
+        </div>
+        <div class="footer-section repository">
+          <h3>Github Repository</h3>
+          <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io">
+            <!-- <img src="src={{ url_for('static', filename='img/github.jpg')}}"></img> -->
+            <i class="fab fa-github" href=""></i>
+          </a>
+        </div>
+        <div class="footer-section logo">
+          <a href="home">
+            <img
+              class="footer-logo"
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              alt="TeamBestRanch Logo"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+  </div>
+
+    <!-- Scripts Section -->
+      <script>
+        function myFunction1() {
+            alert("NEED THE SAUCE");
+        }
+        function myFunction2() {
+            alert("perfect");
+        }
+        function myFunction3() {
+            alert("Meh");
+        }
+        function myFunction4() {
+            alert("Hate It");
+        }
+        function myFunction5() {
+            alert("Abstain");
+        }
+    </script>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var img = document.getElementById("myImg");
+        var img2 = document.getElementById("myImg2");
+        var img3 = document.getElementById("myImg3");
+        var img4 = document.getElementById("myImg4");
+        var img5 = document.getElementById("myImg5");
+        var img6 = document.getElementById("myImg6");
+        var img7 = document.getElementById("myImg7");
+        var img8 = document.getElementById("myImg8");
+        var img9 = document.getElementById("myImg9");
+
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img2.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img3.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img4.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img5.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img6.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img7.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img8.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        img9.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type=text/javascript src="{{url_for('static', filename='rating.js') }}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

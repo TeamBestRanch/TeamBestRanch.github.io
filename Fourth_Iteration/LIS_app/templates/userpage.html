@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@700&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/all.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='navbar.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='userpage.css') }}"
+    />
+
+  <body>
+   <!-- Navigation Bar Code -->
+    <nav class="navbar fixed-top" role="navigation">
+      <!-- If the user is logged in, this navbar is shown -->
+      {% if current_user.is_authenticated %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="UserPage">Nuggie Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ranch Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="TierList">Nuggie Rank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- If the user is not logged in, this navbar is shown -->
+    {% else %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+    </nav>
+    <!-- End of Navigation Bar -->
+
+    <!-- User Profile Code-->
+    <br><br>
+    <div class = "userBox">
+      <h3 class = "userGreeting">HOW SAUCY ARE YOU [Insert User First Name]?</h3>
+      <!-- Goes through the database and inserts first name -->
+
+      <div class="container-fluid">
+        <div class="row m-y-2">
+          <div class="col-lg-8 push-lg-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item" id = "UserNav">
+                  <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">User Profile</a>
+                </li>
+
+                <li class="nav-item" id = "UserNav">
+                  <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                </li>
+            </ul>
+            <div class="tab-content p-b-3">
+              <div class="tab-pane active" id="profile">
+                <div class="row">
+                  <div class="col-md-6">
+                      <h4 class = "userGreeting"><u>About</u></h4>
+                      <p>
+                          Web Designer, UI/UX Engineer
+                      </p>
+                      <h4 class = "userGreeting"><u>Hobbies</u></h4>
+                      <p>
+                          Indie music, skiing and hiking. I love the great outdoors.
+                      </p>
+                  </div>
+                </div>
+                  <div class = "row">
+                    <h4 class = "userGreeting"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Recent Activity</h4><hr>
+                    <table class="table table-hover table-striped">
+                      <tbody>                                    
+                        <tr>
+                          <td>
+                              <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                              <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                              <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                              <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                              <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </>
+                </div>
+                  
+                     
+                      <!--/row-->
+                  </div>
+
+                  <div class="tab-pane" id="edit">
+                    <form role="form">
+                      <div class ="form-group row">
+                        <div class="col-lg-4 pull-lg-8 text-xs-center">
+                          <label class="col">
+                              <input type="file" id="file" class="custom-file-input">
+                              <button class="btn btn-primary">Upload a New Photo</button>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="email" value="">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">About You</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control" type="textbox" value="" placeholder="Tell us about yourself....."rows="3"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Favorite Sauces:</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control" type="textbox" value="" placeholder="Insert your favorite sauces....."rows="3"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="password" value="">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label ">Confirm password</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="password" value="">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                            <input type="button" class="btn btn-primary" value="Save Changes">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+          <!-- insert -->
+          <div class="col-lg-4 pull-lg-8 text-xs-center">
+            <img style="margin-left:25px;" src="{{ url_for('static', filename='img/default.jpg') }}">
+          </div>
+      </div>
+    </div>
+    <hr>
+
+    </div>
+
+    <!-- End User Profile COde-->
+
+
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center">
+      <div class="footer-content">
+        <div class="footer-section about-us">
+          <h3>Team Best Ranch Is:</h3>
+          <!-- <ul class="team-members"> -->
+          Tiffanny Hernaez<br />
+          Diana Joya<br />
+          Mikias Zeleke<br />
+          Patrick Kilroy<br />
+          Jeffrey Russell<br />
+          <!-- </ul> -->
+        </div>
+        <div class="footer-section repository">
+          <h3>Github Repository</h3>
+          <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io">
+            <!-- <img src="src={{ url_for('static', filename='img/github.jpg')}}"></img> -->
+            <i class="fab fa-github" href=""></i>
+          </a>
+        </div>
+        <div class="footer-section logo">
+          <a href="home">
+            <img
+              class="footer-logo"
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              alt="TeamBestRanch Logo"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Scripts Section -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
