@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/all.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='navbar.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='userpage.css') }}"
+    />
+
+  <body>
+    <!-- Navigation Bar Code -->
+    <nav class="navbar fixed-top" role="navigation">
+      <!-- If the user is logged in, this navbar is shown -->
+      {% if current_user.is_authenticated %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="UserPage">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- If the user is not logged in, this navbar is shown -->
+    {% else %}
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home">Lost in Sauce</a>
+        <button
+          type="button"
+          class="navbar-toggler d-flex align-items-end navbar-nav ml-lg-auto"
+          data-toggle="collapse"
+          data-target="#collapsingNavbar1"
+        >
+          ☰
+        </button>
+        <div class="collapse navbar-collapse" id="collapsingNavbar1">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="RestaurantRankings">Ratings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signup">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+    </nav>
+    <!-- End of Navigation Bar -->
+
+    <!-- User Profile Code-->
+    <div class = "container">
+      <br><br><br>
+      <form name="newad" method="post" enctype="multipart/form-data" action="">
+        <title>Registration</title>
+        <h1> Lost in Sauce </h1>
+        <table>
+        <h2>How saucy are you????</color></h2>
+        <img style="margin-left:25px;" src="{{ url_for('static', filename='img/default.jpg') }}" width="200" height="200" />
+        <tr><td><input type="file" name="image" ></td></tr>
+        </table>
+      </form>
+      <fieldset>
+        <form action="" id="usrform">
+        <p> Tell us about you! <p>
+        </form>
+        <textarea rows="4" cols="50" name="comment" form="usrform">
+        Enter text here...</textarea>
+        <br>
+  
+        <label for="dob">Date Of Birth</label>
+        <input type="datetime-local">
+        </p>
+        <p>
+        <label for="address">Address</label>
+        <input type="textarea" name="address">
+        </p>
+        <p>
+        <label for="full name">Phone Number </label>
+        <input type="tel" name="tel">
+        </p>
+      </fieldset>
+  
+      <fieldset>
+      <button type="submit">Update Profile</button>
+      </form><br><br>
+    </div>
+    <br><br><br>
+
+    <!-- End User Profile COde-->
+
+
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center">
+      <div class="footer-content">
+        <div class="footer-section about-us">
+          <h3>Team Best Ranch Is:</h3>
+          <!-- <ul class="team-members"> -->
+          Tiffanny Hernaez<br />
+          Diana Joya<br />
+          Mikias Zeleke<br />
+          Patrick Kilroy<br />
+          Jeffrey Russell<br />
+          <!-- </ul> -->
+        </div>
+        <div class="footer-section repository">
+          <h3>Github Repository</h3>
+          <a href="https://github.com/TeamBestRanch/TeamBestRanch.github.io">
+            <!-- <img src="src={{ url_for('static', filename='img/github.jpg')}}"></img> -->
+            <i class="fab fa-github" href=""></i>
+          </a>
+        </div>
+        <div class="footer-section logo">
+          <a href="home">
+            <img
+              class="footer-logo"
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              alt="TeamBestRanch Logo"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; TeamBestRanch.github.io | Designed by Team Best Ranch
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!-- Scripts Section -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

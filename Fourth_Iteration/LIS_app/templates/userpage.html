@@ -103,141 +103,138 @@
     <!-- User Profile Code-->
     <br><br>
     <div class = "userBox">
-      <h3 class = "userGreeting">HOW SAUCY ARE YOU [Insert User First Name]?</h3>
+      <h1 class = "userGreeting">How saucy are you {{current_user.fname}} {{current_user.lname}}?</h1>
       <!-- Goes through the database and inserts first name -->
 
       <div class="container-fluid">
         <div class="row m-y-2">
-          <div class="col-lg-8 push-lg-4">
+          <div class="col-lg-7 push-lg-4">
             <ul class="nav nav-tabs">
-                <li class="nav-item" id = "UserNav">
-                  <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">User Profile</a>
-                </li>
+              <li class="nav-item" id = "UserNav">
+                <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">User Profile</a>
+              </li>
 
-                <li class="nav-item" id = "UserNav">
-                  <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
-                </li>
+              <li class="nav-item" id = "UserNav">
+                <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+              </li>
             </ul>
             <div class="tab-content p-b-3">
               <div class="tab-pane active" id="profile">
                 <div class="row">
                   <div class="col-md-6">
-                      <h4 class = "userGreeting"><u>About</u></h4>
-                      <p>
-                          Web Designer, UI/UX Engineer
-                      </p>
-                      <h4 class = "userGreeting"><u>Hobbies</u></h4>
-                      <p>
-                          Indie music, skiing and hiking. I love the great outdoors.
-                      </p>
+                    <h4 class = "userGreeting"><u>About</u></h4>
+                    <p>
+                        Web Designer, UI/UX Engineer
+                    </p>
+                    <h4 class = "userGreeting"><u>Hobbies</u></h4>
+                    <p>
+                        Indie music, skiing and hiking. I love the great outdoors.
+                    </p>
                   </div>
                 </div>
                   <div class = "row">
-                    <h4 class = "userGreeting"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Recent Activity</h4><hr>
+                    <h4 class = "userGreeting"><span class="fa fa-clock-o ion-clock pull-xs-right"></span><u>{{current_user.fname}}'s Recent Ratings</u></h4><hr>
                     <table class="table table-hover table-striped">
                       <tbody>                                    
                         <tr>
                           <td>
-                              <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                              <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                              <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                              <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
                           </td>
                         </tr>
                         <tr>
                           <td>
-                              <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                  </>
-                </div>
-                  
-                     
+                  </div> 
                       <!--/row-->
-                  </div>
+                </div>
 
-                  <div class="tab-pane" id="edit">
-                    <form role="form">
-                      <div class ="form-group row">
-                        <div class="col-lg-4 pull-lg-8 text-xs-center">
-                          <label class="col">
-                              <input type="file" id="file" class="custom-file-input">
-                              <button class="btn btn-primary">Upload a New Photo</button>
-                          </label>
-                        </div>
+                <div class="tab-pane" id="edit">
+                  <form role="form">
+                    <div class ="form-group row">
+                      <div class="col-lg-4 pull-lg-8 text-xs-center">
+                        <label class="col">
+                            <input type="file" id="file" class="custom-file-input">
+                            <button class="btn btn-primary">Upload a New Photo</button>
+                        </label>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="">
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="text" value="">
                       </div>
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="">
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="text" value="">
                       </div>
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="email" value="">
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="email" value="">
                       </div>
+                    </div>
 
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">About You</label>
-                        <div class="col-lg-9">
-                            <textarea class="form-control" type="textbox" value="" placeholder="Tell us about yourself....."rows="3"></textarea>
-                        </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">About You</label>
+                      <div class="col-lg-9">
+                          <textarea class="form-control" type="textbox" value="" placeholder="Tell us about yourself....."rows="3"></textarea>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Favorite Sauces:</label>
-                        <div class="col-lg-9">
-                            <textarea class="form-control" type="textbox" value="" placeholder="Insert your favorite sauces....."rows="3"></textarea>
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Favorite Sauces:</label>
+                      <div class="col-lg-9">
+                          <textarea class="form-control" type="textbox" value="" placeholder="Insert your favorite sauces....."rows="3"></textarea>
                       </div>
+                    </div>
 
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="password" value="">
-                        </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="password" value="">
                       </div>
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label ">Confirm password</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="password" value="">
-                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label ">Confirm password</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="password" value="">
                       </div>
+                    </div>
 
-                      <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                        <div class="col-lg-9">
-                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                            <input type="button" class="btn btn-primary" value="Save Changes">
-                        </div>
+                    <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label"></label>
+                      <div class="col-lg-9">
+                          <input type="reset" class="btn btn-secondary" value="Cancel">
+                          <input type="button" class="btn btn-primary" value="Save Changes">
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                  </form>
+                </div>
               </div>
           </div>
           <!-- insert -->
-          <div class="col-lg-4 pull-lg-8 text-xs-center">
+          <div class="col-lg-2" id="userPic">
             <img style="margin-left:25px;" src="{{ url_for('static', filename='img/default.jpg') }}">
           </div>
       </div>
