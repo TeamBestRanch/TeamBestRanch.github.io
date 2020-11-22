@@ -21,11 +21,16 @@ input {
 }
 fieldset {
   margin: 1em 180;
-  background-color: Ivory;
 }
 label input {
   display: block;
   color: red;
+}
+label {
+  font-family: "Slackey", cursive;
+}
+input {
+  font-family: "Slackey", cursive;
 }
 
 .userBox {
@@ -62,15 +67,18 @@ label input {
   color: #343f64;
 }
 
-label {
-  font-family: "Slackey", cursive;
-}
-input {
-  font-family: "Slackey", cursive;
+.btn {
+  background-color: #343f64;
+  color: white;
 }
 
 #UserNav {
   background-color: lightgray;
   color: black;
   font-family: "Slackey", cursive;
+}
+
+#Update {
+  background-color: tomato;
+  color: white;
 }

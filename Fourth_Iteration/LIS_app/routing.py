@@ -1,6 +1,9 @@
+import os
+import secrets
+from PIL import Image
 from flask import render_template, url_for, flash, redirect, jsonify, request
 from LIS_app import app, db, bcrypt
-from LIS_app.forms import RegistrationForm, LoginForm, newRestaurantForm
+from LIS_app.forms import RegistrationForm, LoginForm, newRestaurantForm, UpdateAccountForm
 from LIS_app.database import User, Restaurant, RatingButton
 from flask_login import login_user, current_user, logout_user
 from sqlalchemy import func
@@ -17,7 +20,7 @@ def Home():
 @app.route('/login',  methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('RestaurantRankings'))
+        return redirect(url_for('UserPage'))
     form = LoginForm()
     if form.validate_on_submit():
         usr = User.query.filter_by(email=form.email.data).first()
@@ -76,13 +79,16 @@ def process():
         # print(restName, ' ', userName, ' ', score)
         if userName != 'no-user':
             user = db.session.query(User).filter_by(email=userName).first()
-            restaurant = db.session.query(Restaurant).filter_by(restaurant_name=restName).first()
-            newScore = RatingButton(customer_id=user.user_id, restaurant_id=restaurant.restaurant_id, score=score)
+            restaurant = db.session.query(Restaurant).filter_by(
+                restaurant_name=restName).first()
+            newScore = RatingButton(
+                customer_id=user.user_id, restaurant_id=restaurant.restaurant_id, score=score)
 
             db.session.add(newScore)
             db.session.commit()
 
-            scores_by_restaurant = RatingButton.query.filter_by(restaurant_id=restaurant.restaurant_id).all()
+            scores_by_restaurant = RatingButton.query.filter_by(
+                restaurant_id=restaurant.restaurant_id).all()
             # print(scores_by_restaurant)
             # print(restaurant.restaurant_id, restaurant.avg_score)
 
@@ -103,8 +109,8 @@ def process():
             # db.session.query(RatingButton).delete()
             # db.session.commit()
 
-            return jsonify({'avg' : avg})
-    return jsonify(({'error' : 'Invalid user'}))
+            return jsonify({'avg': avg})
+    return jsonify(({'error': 'Invalid user'}))
 
 
 @app.route("/logout")
@@ -119,9 +125,37 @@ def RestaurantRankings():
     return render_template('rankings.html', title='Restaurant Rankings', restaurants=restaurants)
 
 
-@app.route('/UserPage')
+def SaveProfPic(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(
+        app.root_path, 'static/ProfilePhoto', picture_fn)
+
+    output_size = (400, 400)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+
+    return picture_fn
+
+
+@app.route('/UserPage', methods=['POST', 'GET'])
 def UserPage():
-    return render_template('userpage.html', title='User Page')
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = SaveProfPic(form.picture.data)
+            current_user.img_file = picture_file
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your Account has been updated!', 'success')
+        return redirect(url_for('UserPage'))
+    elif request.method == 'GET':
+        form.email.data = current_user.email
+    img_file = url_for('static', filename='ProfilePhoto/' +
+                       current_user.img_file)
+    return render_template('userpage.html', title='User Page', img_file=img_file, form=form)
 
 
 @app.route('/TierList')

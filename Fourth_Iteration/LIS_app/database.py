@@ -17,13 +17,27 @@ class User(db.Model, UserMixin):
     img_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     scores = db.relationship('RatingButton', backref='author', lazy=True)
+    userData = db.relationship('UserInfo', backref='author', lazy=True)
 
     def __repr__(self):
         return f"User('{self.fname}','{self.lname}', '{self.email}', '{self.img_file}')"
-    
+
     # Overrides and gets the No `id` attribute bug
     def get_id(self):
         return (self.user_id)
+
+
+class UserInfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    AboutUser = db.Column(db.String(200))
+    HobbyUser = db.Column(db.String(200))
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'user.user_id'), nullable=False)
+
+    def __repr__(self):
+        return f"UserInfo('{self.AboutUser}','{self.HobbyUser}')"
+
+    # SHOULD BE USING SIMILAR CODE TO DISPLAY USER DATA ON RATINGS
 
 
 class Restaurant(db.Model):
