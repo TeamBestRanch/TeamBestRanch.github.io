@@ -6,12 +6,13 @@
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap"
-      rel="stylesheet"
-    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@700&display=swap" rel="stylesheet">
 
     <link
       rel="stylesheet"
@@ -100,47 +101,159 @@
     <!-- End of Navigation Bar -->
 
     <!-- User Profile Code-->
-    <div class = "container">
-      <br><br><br>
-      <form name="newad" method="post" enctype="multipart/form-data" action="">
-        <title>Registration</title>
-        <h1> Lost in Sauce </h1>
-        <table>
-        <h2>How saucy are you????</color></h2>
-        <img style="margin-left:25px;" src="{{ url_for('static', filename='img/default.jpg') }}" width="200" height="200" />
-        <tr><td><input type="file" name="image" ></td></tr>
-        </table>
-      </form>
-      <fieldset>
-        <form action="" id="usrform">
-        <p> Tell us about you! <p>
-        </form>
-        <textarea rows="4" cols="50" name="comment" form="usrform">
-        Enter text here...</textarea>
-        <br>
-  
-        <label for="dob">Date Of Birth</label>
-        <input type="datetime-local">
-        </p>
-        <p>
-        <label for="address">Address</label>
-        <input type="textarea" name="address">
-        </p>
-        <p>
-        <label for="full name">Phone Number </label>
-        <input type="tel" name="tel">
-        </p>
-      </fieldset>
-  
-      <fieldset>
-      <button type="submit">Update Profile</button>
-      </form><br><br>
+    <br><br>
+    <div class = "userBox">
+      <h1 class = "userGreeting">How saucy are you {{current_user.fname}} {{current_user.lname}}?</h1>
+      <!-- Goes through the database and inserts first name -->
+
+      <div class="container-fluid">
+        <div class="row m-y-2">
+          <div class="col-lg-7 push-lg-4">
+            <ul class="nav nav-tabs">
+              <li class="nav-item" id = "UserNav">
+                <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">User Profile</a>
+              </li>
+
+              <li class="nav-item" id = "UserNav">
+                <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+              </li>
+            </ul>
+            <div class="tab-content p-b-3">
+              <div class="tab-pane active" id="profile">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div>
+                      <br>
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                      {%if messages%}
+                        {% for category, message in messages%}
+                          <div class="alert alert-{{category}}">{{message}}</div>
+                        {%endfor%} {%endif%} {%endwith%}
+                    </div>
+                    <h4 class = "userGreeting"><u>About Me</u></h4>
+                    <p>
+                      
+                    </p>
+                    <h4 class = "userGreeting"><u>Hobbies</u></h4>
+                    <p>
+                      
+                    </p>
+                  </div>
+                </div>
+                  <div class = "row">
+                    <h4 class = "userGreeting"><span class="fa fa-clock-o ion-clock pull-xs-right"></span><u>{{current_user.fname}}'s Recent Ratings</u></h4><hr>
+                    <table class="table table-hover table-striped">
+                      <tbody>                                    
+                        <tr>
+                          <td>
+                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> 
+                      <!--/row-->
+                </div>
+
+                <!-- Start of the EDIT PROFILE form -->
+                <div class="tab-pane" id="edit">
+                  <div class="container-fluid column" id="UserAccountEdit">
+                    <!-- Asking User to Enter their first name -->
+                    <div>
+                      <br>
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                      {%if messages%}
+                        {% for category, message in messages%}
+                          <div class="alert alert-{{category}}">{{message}}</div>
+                        {%endfor%} {%endif%} {%endwith%}
+                    </div>
+            
+                    <div class="content-section">
+                      <form method="POST" action="" enctype="multipart/form-data">
+                        {{form.hidden_tag()}}
+                        <fieldset class="form-group">
+                          <br>
+                          <!-- <legend class="border-bottom mb-4"><br>Account Info</legend><br> -->
+                          <!-- Upload New Profile Pic For User -->
+                          <div class="form-group">
+                            {{form.picture.label()}}
+                            {{form.picture(class="form-control-file")}}
+                            {% if form.picture.errors %}
+                              {%for error in form.picture.errors%}
+                                <span class="text-danger">{{error}}</span><br>
+                              {%endfor%}
+                              <br>
+                            {%endif%}
+                          </div>
+                          
+                          <!-- Email of the User -->
+                          <div class="form-group">
+                            {{form.email.label(class="form-control-label")}}
+            
+                            <!-- Prints out errors if any-->
+                            {%if form.email.errors%}
+                              {{form.email(class="form-control-lg is-invalid")}}
+                              <div class="invalid-feedback">
+                                {%for error in form.email.errors%}
+                                  <span>{{error}}</span>
+                                {%endfor%}
+                              </div>
+                              {%else%}
+                                {{form.email(class="form-control form-control-lg")}}
+                            {%endif%}
+                          </div>
+
+                          <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">About You</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" type="textbox" value="" placeholder="Tell us about yourself....."rows="3"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Favorite Sauces:</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" type="textbox" value="" placeholder="Insert your favorite sauces....."rows="3"></textarea>
+                            </div>
+                          </div>
+            
+                        </fieldset>
+                        <div class="form-group">
+                          {{form.submit_signup(class="btn",id = "Update")}}
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- insert -->
+          </div>
+          <div class="col-lg-2 " id="userPic">
+            <img class = "rounded-circle account-img", style="margin-left:25px;" src="{{img_file}}">
+          </div>
+        </div>
+      </div>
     </div>
-    <br><br><br>
-
     <!-- End User Profile COde-->
-
-
 
     <!-- Footer -->
     <footer class="container-fluid text-center">

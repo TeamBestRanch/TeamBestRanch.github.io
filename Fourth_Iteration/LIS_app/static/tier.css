@@ -3,7 +3,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Tienne", serif;
-  background: url("../static/img/chickenBG1.png");
+  background: url("../static/img/chickensInSpace.jpg");
   background-size: 100%;
 }
 
@@ -17,10 +17,20 @@ body {
 }
 
 #TierList {
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background: url("../static/img/userCard.png");
+  background-size: 100%;
   border-radius: 25px;
   height: 100%;
+  width: 55%;
   background-clip: border-box;
-  padding: 15px;
+  padding: 10%;
   margin-top: 75px;
+}
+
+h1 {
+  font-family: "Slackey", cursive;
+}
+hr {
+  border-top: 3px solid;
 }
