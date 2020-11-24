@@ -132,11 +132,11 @@
                     </div>
                     <h4 class = "userGreeting"><u>About Me</u></h4>
                     <p>
-                      
+                      {{current_user.AboutUser}}
                     </p>
                     <h4 class = "userGreeting"><u>Hobbies</u></h4>
                     <p>
-                      
+                      {{current_user.HobbyUser}}
                     </p>
                   </div>
                 </div>
@@ -144,31 +144,15 @@
                     <h4 class = "userGreeting"><span class="fa fa-clock-o ion-clock pull-xs-right"></span><u>{{current_user.fname}}'s Recent Ratings</u></h4><hr>
                     <table class="table table-hover table-striped">
                       <tbody>                                    
+                        {% for item in current_user.score %}
                         <tr>
-                          <td>
-                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                          </td>
+                            <td>{{item[0]}}</td>
+                            <td>{{item[1]}}</td>
+                            <td>{{item[2]}}</td>
+                            <td>{{item[3]}}</td>
+                            <td>{{item[4]}}</td>
                         </tr>
-                        <tr>
-                          <td>
-                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                          </td>
-                        </tr>
+                        {% endfor %}
                       </tbody>
                     </table>
                   </div> 
@@ -223,17 +207,38 @@
                             {%endif%}
                           </div>
 
-                          <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">About You</label>
-                            <div class="col-lg-9">
-                                <textarea class="form-control" type="textbox" value="" placeholder="Tell us about yourself....."rows="3"></textarea>
-                            </div>
+                          <!-- About You for the User -->
+                          <div class="form-group">
+                            {{form.aboutyou.label(class="form-control-label")}}
+            
+                            <!-- Prints out errors if any-->
+                            {%if form.aboutyou.errors%}
+                              {{form.aboutyou(class="form-control-lg is-invalid")}}
+                              <div class="invalid-feedback">
+                                {%for error in form.aboutyou.errors%}
+                                  <span>{{error}}</span>
+                                {%endfor%}
+                              </div>
+                              {%else%}
+                                {{form.aboutyou(class="form-control form-control-lg")}}
+                            {%endif%}
                           </div>
-                          <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Favorite Sauces:</label>
-                            <div class="col-lg-9">
-                                <textarea class="form-control" type="textbox" value="" placeholder="Insert your favorite sauces....."rows="3"></textarea>
-                            </div>
+
+                          <!-- Hobbies of the User -->
+                          <div class="form-group">
+                            {{form.hobby.label(class="form-control-label")}}
+            
+                            <!-- Prints out errors if any-->
+                            {%if form.hobby.errors%}
+                              {{form.hobby(class="form-control-lg is-invalid")}}
+                              <div class="invalid-feedback">
+                                {%for error in form.hobby.errors%}
+                                  <span>{{error}}</span>
+                                {%endfor%}
+                              </div>
+                              {%else%}
+                                {{form.hobby(class="form-control form-control-lg")}}
+                            {%endif%}
                           </div>
             
                         </fieldset>

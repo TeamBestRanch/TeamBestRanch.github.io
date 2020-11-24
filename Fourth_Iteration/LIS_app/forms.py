@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from LIS_app.database import User, Restaurant, UserInfo
+from LIS_app.database import User, Restaurant
 
 
 class RegistrationForm(FlaskForm):
@@ -46,6 +46,8 @@ class newRestaurantForm(FlaskForm):
 class UpdateAccountForm(FlaskForm):
     email = StringField('Email', validators=[
         DataRequired(), Email()])
+    aboutyou = TextAreaField('About You')
+    hobby = TextAreaField('Hobbies')
     picture = FileField('Update Profile Picture', validators=[
                         FileAllowed(['jpg', 'png'])])
     submit_signup = SubmitField('Update')
