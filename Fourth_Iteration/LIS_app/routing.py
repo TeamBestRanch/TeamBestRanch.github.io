@@ -5,7 +5,7 @@ from flask import render_template, url_for, flash, redirect, jsonify, request
 from LIS_app import app, db, bcrypt
 from LIS_app.forms import RegistrationForm, LoginForm, newRestaurantForm, UpdateAccountForm
 from LIS_app.database import User, Restaurant, RatingButton
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import func
 
 # Page Routes
@@ -148,11 +148,15 @@ def UserPage():
             picture_file = SaveProfPic(form.picture.data)
             current_user.img_file = picture_file
         current_user.email = form.email.data
+        current_user.AboutUser = form.aboutyou.data
+        current_user.HobbyUser = form.hobby.data
         db.session.commit()
         flash('Your Account has been updated!', 'success')
         return redirect(url_for('UserPage'))
     elif request.method == 'GET':
         form.email.data = current_user.email
+        form.aboutyou.data = current_user.AboutUser
+        form.hobby.data = current_user.HobbyUser
     img_file = url_for('static', filename='ProfilePhoto/' +
                        current_user.img_file)
     return render_template('userpage.html', title='User Page', img_file=img_file, form=form)
