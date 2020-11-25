@@ -48,6 +48,7 @@ class UpdateAccountForm(FlaskForm):
         DataRequired(), Email()])
     aboutyou = TextAreaField('About You')
     hobby = TextAreaField('Hobbies')
+    FavFood = TextAreaField('FavFood')
     picture = FileField('Update Profile Picture', validators=[
                         FileAllowed(['jpg', 'png'])])
     submit_signup = SubmitField('Update')
