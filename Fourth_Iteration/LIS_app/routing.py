@@ -6,7 +6,8 @@ from LIS_app import app, db, bcrypt
 from LIS_app.forms import RegistrationForm, LoginForm, newRestaurantForm, UpdateAccountForm
 from LIS_app.database import User, Restaurant, RatingButton
 from flask_login import login_user, current_user, logout_user, login_required
-from sqlalchemy import func
+from sqlalchemy import func, desc
+
 
 # Page Routes
 
@@ -75,10 +76,11 @@ def process():
         restName = request.form['restaurant']
         userName = request.form['user']
         score = request.form['score']
-
         # print(restName, ' ', userName, ' ', score)
         if userName != 'no-user':
             user = db.session.query(User).filter_by(email=userName).first()
+            # user.counterRate = user.counterRate + CounterRate
+
             restaurant = db.session.query(Restaurant).filter_by(
                 restaurant_name=restName).first()
             newScore = RatingButton(
@@ -103,6 +105,8 @@ def process():
             # print(avg)
 
             restaurant.avg_score = avg
+            # RatingCount = RatingCount + 1
+            # user.counterRate = RatingCount
             db.session.commit()
 
             # TO DELETE ALL VALUES IN RATINGBUTTON DB:
@@ -150,6 +154,7 @@ def UserPage():
         current_user.email = form.email.data
         current_user.AboutUser = form.aboutyou.data
         current_user.HobbyUser = form.hobby.data
+        current_user.FavFood = form.FavFood.data
         db.session.commit()
         flash('Your Account has been updated!', 'success')
         return redirect(url_for('UserPage'))
@@ -162,6 +167,16 @@ def UserPage():
     return render_template('userpage.html', title='User Page', img_file=img_file, form=form)
 
 
-@app.route('/TierList')
+@ app.route('/TierList', methods=['POST', 'GET'])
 def TierList():
-    return render_template('tierlist.html', title='Tiers')
+    if request.method == "POST":
+        # CounterRate = request.form['UserCounter']
+        userName = request.form['user']
+
+        if userName != 'no-user':
+            user = db.session.query(User).filter_by(email=userName).first()
+            user.counterRate = user.counterRate + 1
+            db.session.commit()
+    user = User.query.order_by(desc(User.counterRate)).all()
+
+    return render_template('tierlist.html', title='Tiers', userList=user)

@@ -138,25 +138,13 @@
                     <p>
                       {{current_user.HobbyUser}}
                     </p>
+                    <h4 class = "userGreeting"><u>Favorite Foods</u></h4>
+                    <p>
+                      {{current_user.FavFood}}
+                    </p>
                   </div>
                 </div>
-                  <div class = "row">
-                    <h4 class = "userGreeting"><span class="fa fa-clock-o ion-clock pull-xs-right"></span><u>{{current_user.fname}}'s Recent Ratings</u></h4><hr>
-                    <table class="table table-hover table-striped">
-                      <tbody>                                    
-                        {% for item in current_user.score %}
-                        <tr>
-                            <td>{{item[0]}}</td>
-                            <td>{{item[1]}}</td>
-                            <td>{{item[2]}}</td>
-                            <td>{{item[3]}}</td>
-                            <td>{{item[4]}}</td>
-                        </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
-                  </div> 
-                      <!--/row-->
+                  <!--/row-->
                 </div>
 
                 <!-- Start of the EDIT PROFILE form -->
@@ -240,6 +228,23 @@
                                 {{form.hobby(class="form-control form-control-lg")}}
                             {%endif%}
                           </div>
+
+                            <!-- Favorite Food of the User -->
+                            <div class="form-group">
+                              {{form.FavFood.label(class="form-control-label")}}
+              
+                              <!-- Prints out errors if any-->
+                              {%if form.FavFood.errors%}
+                                {{form.hobby(class="form-control-lg is-invalid")}}
+                                <div class="invalid-feedback">
+                                  {%for error in form.FavFood.errors%}
+                                    <span>{{error}}</span>
+                                  {%endfor%}
+                                </div>
+                                {%else%}
+                                  {{form.FavFood(class="form-control form-control-lg")}}
+                              {%endif%}
+                            </div>
             
                         </fieldset>
                         <div class="form-group">
