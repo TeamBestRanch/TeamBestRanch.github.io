@@ -112,7 +112,7 @@
     <div class="container" id="RestaurantList">
       <h1>Add Restaurant to DB</h1>
         <br>
-        <form action="/Restaurants" METHOD="POST">
+        <form action="/Restaurants" METHOD="POST" enctype="multipart/form-data">
             {{form.hidden_tag()}}
             <fieldset class="form-group">
             <!-- Restaurant Name -->
@@ -132,41 +132,20 @@
                 {%endif%}
 
               </div>
-            <!-- Ranch Name -->
-            <div class="form-group">
-            {{form.ranch_name.label(class="form-control-label")}}
-
-            <!-- Prints out errors if any-->
-            {%if form.ranch_name.errors%}
-              {{form.ranch_name(class="form-control-lg is-invalid")}}
-              <div class="invalid-feedback">
-                {%for error in form.ranch_name.errors%}
-                  <alert>{{error}}</alert>
-                {%endfor%}
-              </div>
-              {%else%}
-                {{form.ranch_name(class="form-control form-control-lg")}}
-            {%endif%}
-
-            </div>
 
             <!-- Restaurant Image -->
-            <div class="form-group">
-            {{form.image.label(class="form-control-label")}}
-
-            <!-- Prints out errors if any-->
-            {%if form.image.errors%}
-              {{form.image(class="form-control-lg is-invalid")}}
-              <div class="invalid-feedback">
-                {%for error in form.image.errors%}
-                  <alert>{{error}}</alert>
-                {%endfor%}
+            <!-- Upload Restaurant Image -->
+              <div class="form-group">
+                {{form.picture.label()}}
+                {{form.picture(class="form-control-file")}}
+                {% if form.picture.errors %}
+                  {%for error in form.picture.errors%}
+                    <span class="text-danger">{{error}}</span><br>
+                  {%endfor%}
+                  <br>
+                {%endif%}
               </div>
-              {%else%}
-                {{form.image(class="form-control form-control-lg")}}
-            {%endif%}
 
-            </div>
             </fieldset>
 
             <div class="form-group submit">
@@ -182,11 +161,10 @@
             <div class="col-sm-4 images">
                 <div class="restaurant-card">
                     <h1 class="restaurant-name">{{ restaurant.restaurant_name }}</h1>
-                    <h2 class="ranch">{{ restaurant.ranch_name }}</h2>
-                    <img class="card-img" src="static/img/{{ restaurant.ranch_img }}" alt="Picture" width="340"
+                    <img class="card-img" src="static/RestaurantPhoto/{{ restaurant.ranch_img }}" alt="Picture" width="340"
                          height="250" id="myImg"/>
                     <br>
-                    <h3 class="score">Default Score: {{ restaurant.avg_score }}</h3>
+                    <h3 class="score">Score: {{ restaurant.avg_score }}</h3>
                 </div>
                 <br>
             </div>
@@ -205,7 +183,6 @@
             Diana Joya<br>
             Mikias Zeleke<br>
             Patrick Kilroy<br>
-            Jeffrey Russell<br>
           <!-- </ul> -->
         </div>
         <div class="footer-section repository">

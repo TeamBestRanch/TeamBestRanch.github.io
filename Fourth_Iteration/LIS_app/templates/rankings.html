@@ -271,8 +271,7 @@
             <div class="col-sm-4 images">
                 <div class="restaurant-card">
                     <h1 class="restaurant-name">{{ restaurant.restaurant_name }}</h1>
-                    <h2 class="ranch">{{ restaurant.ranch_name }}</h2>
-                    <img class="card-img" src="static/img/{{ restaurant.ranch_img }}" alt="Picture" width="340"
+                    <img class="card-img" src="static/RestaurantPhoto/{{ restaurant.ranch_img }}" alt="Picture" width="340"
                          height="250" id="myImg"/>
                     <br>
                     <h3 id="setScore{{ loop.index }}" class="restaurant-score">User Rating: {{ restaurant.avg_score }}</h3>
@@ -302,11 +301,12 @@
             </div>
             {% endfor %}
         </div>
+        <br /><br />
     </div>
 
 
     <!-- Footer -->
-    <br /><br />
+
     <footer class="container-fluid text-center">
       <div class="footer-content">
         <div class="footer-section about-us">
@@ -316,7 +316,6 @@
           Diana Joya<br />
           Mikias Zeleke<br />
           Patrick Kilroy<br />
-          Jeffrey Russell<br />
           <!-- </ul> -->
         </div>
         <div class="footer-section repository">

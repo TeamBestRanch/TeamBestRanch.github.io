@@ -27,6 +27,11 @@ h3 {
   background-size: 300px 100px;
 }
 
+.rankings-list {
+    background: url("../static/img/pexels-francesco-ungaro-998641.jpg");
+    background-size: 100%;
+}
+
 .restaurant-card {
   background-color: rgb(255, 255, 255, 0.8);
   border-radius: 25px;
@@ -66,12 +71,16 @@ h3 {
 }
 
 .card-img:hover {
-  opacity: 0.85;
+  opacity: 0.90;
 }
 
 
 .btn.submit, .submit {
     width: 100%;
+}
+
+.button-section {
+    padding-left: 3.5%;
 }
 
 .btn {
