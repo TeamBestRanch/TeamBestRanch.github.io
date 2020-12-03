@@ -34,14 +34,11 @@ class User(db.Model, UserMixin):
 class Restaurant(db.Model):
     restaurant_id = db.Column(db.Integer, primary_key=True)
     restaurant_name = db.Column(db.String(100), nullable=False)
-    ranch_name = db.Column(db.String(100), nullable=False)
-    ranch_img = db.Column(
-        db.String(20), nullable=False, default='default.jpg')
+    ranch_img = db.Column(db.String(20), nullable=False, default='default.jpg')
     avg_score = db.Column(db.Integer, nullable=False)
-    scores = db.relationship('RatingButton', backref='rated', lazy=True)
 
     def __repr__(self):
-        return f"Restaurant('{self.restaurant_name}', '{self.ranch_name}', '{self.ranch_img}', '{self.avg_score}')"
+        return f"Restaurant('{self.restaurant_name}', '{self.ranch_img}', '{self.avg_score}')"
 
 
 class RatingButton(db.Model):

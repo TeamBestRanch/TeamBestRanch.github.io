@@ -37,9 +37,9 @@ class LoginForm(FlaskForm):
 class newRestaurantForm(FlaskForm):
     restaurant_name = StringField(
         'Restaurant Name', validators=[DataRequired()])
-    ranch_name = StringField('Ranch Name', validators=[DataRequired()])
-    image = StringField('Image Name', validators=[DataRequired()])
-    base_score = int(1)
+    base_score = int(3)
+    picture = FileField('Add Restaurant Picture', validators=[
+        FileAllowed(['jpg', 'png'])])
     submit_restaurant = SubmitField('Add New Restaurant')
 
 

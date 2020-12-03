@@ -58,8 +58,10 @@ def signup():
 def restaurant_db():
     form = newRestaurantForm()
     if form.validate_on_submit():
-        restaurant = Restaurant(restaurant_name=form.restaurant_name.data, ranch_name=form.ranch_name.data,
-                                ranch_img=form.image.data, avg_score=form.base_score)
+        if form.picture.data:
+            picture_file = SaveProfPic(form.picture.data, 'static/RestaurantPhoto')
+        restaurant = Restaurant(restaurant_name=form.restaurant_name.data,
+                                ranch_img=picture_file, avg_score=form.base_score)
 
         db.session.add(restaurant)
         db.session.commit()
@@ -129,12 +131,12 @@ def RestaurantRankings():
     return render_template('rankings.html', title='Restaurant Rankings', restaurants=restaurants)
 
 
-def SaveProfPic(form_picture):
+def SaveProfPic(form_picture, form_path):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(
-        app.root_path, 'static/ProfilePhoto', picture_fn)
+        app.root_path, form_path, picture_fn)
 
     output_size = (400, 400)
     i = Image.open(form_picture)
@@ -149,7 +151,7 @@ def UserPage():
     form = UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
-            picture_file = SaveProfPic(form.picture.data)
+            picture_file = SaveProfPic(form.picture.data, 'static/ProfilePhoto')
             current_user.img_file = picture_file
         current_user.email = form.email.data
         current_user.AboutUser = form.aboutyou.data
