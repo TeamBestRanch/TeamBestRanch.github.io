@@ -106,10 +106,13 @@
 
     <div class="container" id="TierList">
       <h1><center>TOP NUGGIES</center></h1><hr>
-      <ol>
-        <li>TIFFANNY HERNAEZ</li>
-        <li>ADMIN</li>
-      </ol>
+      <table class="table table-hover table-striped">
+        {% for userList in userList %}
+        <tbody> 
+          <td>{{userList.fname}} {{userList.lname}} - Score: {{userList.counterRate}} </td>                         
+        </tbody>
+        {% endfor %}
+      </table>
     </div>
     
 
