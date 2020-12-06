@@ -1,0 +1,47 @@
+/* Navigation Styling */
+
+.navbar {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(68, 0, 163, 0.685),
+    rgba(0, 51, 153, 0.795)
+  );
+  border: 0;
+  padding: 0.5% 0;
+  font-size: 1.2em;
+  min-height: 60px;
+}
+
+.navbar-brand {
+  border-radius: 3px;
+  font-size: 1.35em;
+  min-height: 50px;
+  padding: 5px 5px 5px;
+  color: #fffefb;
+  text-shadow: 2px 2px 3px #d3d4ee;
+  vertical-align: center;
+  font-family: "Slackey", cursive;
+}
+
+.navbar-brand:hover {
+  font-size: 1.4em;
+  color: #fff;
+}
+
+.navbar-toggler {
+  font-size: 2em;
+  color: #fffefb;
+}
+
+.navbar-nav li a {
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-bottom: solid #fff 1px;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li a:active {
+  color: #fff;
+  border-bottom: solid #95a7b6 1px;
+  text-shadow: 2px 2px 3px #80daeb;
+}

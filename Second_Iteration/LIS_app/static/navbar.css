@@ -1,7 +1,8 @@
 /* Navigation Styling */
 
 .navbar {
-  background: rgba(255, 255, 255, 0.8);
+   background-image: linear-gradient(to bottom right,
+    rgba(68, 0, 163, 0.6), rgba(0, 51, 153, 0.6));
   border: 0;
   padding: 0.5% 0;
   font-size: 1.2em;
@@ -9,33 +10,35 @@
 }
 
 .navbar-brand {
-  border: solid 1px #d3af37;
   border-radius: 3px;
-  font-size: 1.2em;
+  font-size: 1.35em;
   min-height: 50px;
-  padding: 5px 15px 5px;
-  color: #d3af37;
+  padding: 5px 5px 5px;
+  color: #fffefb;
+  text-shadow: 2px 2px 3px #d3d4ee;
   vertical-align: center;
-  font-family: "Bungee Shade", cursive;
+  font-family: 'Slackey', cursive;
 }
 
 .navbar-brand:hover {
-  font-size: 1.3em;
-  color: #d3af37;
+  font-size: 1.4em;
+  color: #fff;
 }
 
 .navbar-toggler {
   font-size: 2em;
+  color: #fffefb;
 }
 
 .navbar-nav li a {
-  color: #3f403f;
+  color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border-bottom: solid #3f403f 1px;
+  border-bottom: solid #fff 1px;
 }
 
 .navbar-nav li a:hover,
 .navbar-nav li a:active {
-  color: #d3af37;
-  border-bottom: solid #d3af37 1px;
+  color: #fff;
+  border-bottom: solid #95a7b6 1px;
+  text-shadow: 2px 2px 3px #80daeb;
 }
